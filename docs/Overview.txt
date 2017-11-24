@@ -1,0 +1,63 @@
+=====GUI=====
+Tabbed View:
+
+Home: 
+- Overview parameters of the different staitons
+
+Station View:
+- Fields with current 
+
+Parameter Details Pane:
+- Today / Last Week/ Past Month
+
+Settings GUI:
+- Choose Celsius / Fahrenheit
+
+Settings Stations:
+- Refresh Rate
+
+
+
+====DATA====
+- Save data until space full, then delete oldest
+- Minimal forecast (development of days)
+	- temp & humidity & pressure --> forecast for near future
+	- alternative: machine learning
+
+
+- Raw data evaluated & converted to double within station
+- Data saved on the staiton. Each sensor gets 100 "storage spots"
+
+
+
+====CONNECTION====
+- Can Raspi be an access point and simultaneously as wifi client?
+	- http://www.marrold.co.uk/2017/03/using-raspberry-pi-3-as-wifi-client-and.html --> yes! --> Dejan
+
+
+====TRANSPORT LAYER=====
+- Data encrypted by station
+- Connection WPA2
+- Session encryption SSL
+
+
+
+====CASING FOR DISPLAY====
+Aluminum plate ---> Marc (Dimensions: Dejan)
+
+
+
+====CASING FOR SENSOR STATION====
+- Tupperware box ---> Marc
+- sealed cable routings
+
+
+
+====SENSORS====
+- Temp
+- Rain
+- Air pressure
+- Humidity
+- Visible light
+- (UV)
+- Infrared  
