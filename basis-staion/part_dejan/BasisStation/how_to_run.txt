@@ -1,0 +1,2 @@
+src/basisstation/Basis.java contains runnable main class
+compile all classes, run "java Basis"
