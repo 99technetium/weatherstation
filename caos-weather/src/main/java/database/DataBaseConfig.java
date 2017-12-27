@@ -1,54 +1,128 @@
 package database;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.security.SecureRandom;
 import java.util.Properties;
 
 /**
- * source: http://crunchify.com/java-properties-file-how-to-read-config-properties-values-in-java/
+ * Configures the database at first install with sensible and secure defaults. Additionaly the class can be used to change the default password.
  */
-
 public class DataBaseConfig {
-    String result = "";
     InputStream inputStream;
 
 
-    DataBaseConfig(){
-    }
+    public DataBaseConfig(){}
 
-    public boolean initalDBConfig() throws IOException {
+
+    public boolean initalConfig() throws IOException {
+        String result;
+        boolean success;
         SecureRandom randomPass;
         randomPass = new SecureRandom();
-        try {
 
-        } catch (Exception e){
-            System.out.println("Exception: " + e);
+        if (!testIfPropFilePresent()){
+            createPropFile("");
         }
+        readPropFile();
         return true;
     }
 
-    public String getPropValues()throws IOException{
+    private boolean testIfPropFilePresent(){
+        Properties prop = new Properties();
+        InputStream input = null;
+        boolean present = true;
+
         try {
-            Properties prop = new Properties();
-            String propFileName = "config.properties";
 
-            inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
+            input = new FileInputStream("config.properties");
 
-            if(inputStream != null){
-                prop.load(inputStream);
-            } else {
-                throw new FileNotFoundException("prperty file '"+ propFileName + "' not found in the classpath");
+            // load a properties file
+            prop.load(input);
+        } catch (IOException ex) {
+            present = false;
+        } finally {
+            if (input != null) {
+                try {
+                    input.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return present;
+    }
+
+    private void createPropFile(String password){
+        Properties prop = new Properties();
+        OutputStream output = null;
+        //TODO: use a truly random default password
+        String defaultPassword = "badbassword";
+
+        if(password.equals("")){
+            password = defaultPassword;
+        }
+
+        try {
+
+            output = new FileOutputStream("config.properties");
+
+            // set the properties value
+            prop.setProperty("database", "hostDB");
+            prop.setProperty("dbuser", "weather_station");
+
+            prop.setProperty("dbpassword", password);
+
+            // save properties to project root folder
+            prop.store(output, null);
+
+        } catch (IOException io) {
+            io.printStackTrace();
+        } finally {
+            if (output != null) {
+                try {
+                    output.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
-            String firstopen = prop.getProperty("fistopen");
-            result = firstopen;
-        } catch (Exception e){
-            System.out.println("Exception: " + e);
-        } finally {
-            inputStream.close();
         }
-        return result;
+    }
+
+    /**
+     * Method can be used to change the password for the database.
+     * @param password new password for DB
+     */
+    public void changePassword(String password){
+        createPropFile(password);
+    }
+
+    public void readPropFile(){
+        Properties prop = new Properties();
+        InputStream input = null;
+
+        try {
+
+            input = new FileInputStream("config.properties");
+
+            // load a properties file
+            prop.load(input);
+
+            // get the property value and print it out
+            System.out.println(prop.getProperty("database"));
+            System.out.println(prop.getProperty("dbuser"));
+            System.out.println(prop.getProperty("dbpassword"));
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } finally {
+            if (input != null) {
+                try {
+                    input.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }

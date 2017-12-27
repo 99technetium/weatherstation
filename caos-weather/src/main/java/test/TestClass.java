@@ -1,6 +1,10 @@
 package test;
 
+import database.DataBaseConfig;
 import database.WeatherObject;
+import network.Server;
+
+import java.io.IOException;
 
 public class TestClass {
 
@@ -10,7 +14,19 @@ public class TestClass {
      * @param args
      */
     public static void main(String[] args){
+        DataBaseConfig config = new DataBaseConfig();
+        boolean success = true;
+        try {
+            config.initalConfig();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if(!success){
+            System.out.println("the DB has not been initialized");
+        }
+        //Server server = new Server();
+        //server.startServer();
         WeatherObject weatherObject = new WeatherObject(5, 0);
-        System.out.println("used weather api");
+       // System.out.println("used weather api");
     }
 }

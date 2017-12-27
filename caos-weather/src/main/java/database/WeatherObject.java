@@ -1,8 +1,5 @@
 package database;
 
-import datapoint.DataPoint;
-
-
 /**
  * WeatherObject creates an object that can be used to query the collected data.
  */
@@ -11,7 +8,7 @@ public class WeatherObject {
     private int unit;
 
     /**
-     * Constructor for a WeatherObject object if one of the unites is set to zero,
+     * Constructor for a WeatherObject object if one of the unites is set to 0,
      * only functions that do not need the specific unite for their call can be used.
      *
      * @param deviceID
@@ -32,15 +29,21 @@ public class WeatherObject {
     }
 
     //TODO: implement function
+    public void getAllDevices(){}
+
+    //TODO: implement function
+    public void getAllUnits(){}
+
+    //TODO: implement function
+    public void getDataBetween(int sdate, int stime, int ldate, int ltime){}
+
+
+
+    //TODO: implement function
     //public DataPoint getSpecificDataPoint(int date, int time){
     //    DataPoint data = new DataPoint("dkkdkdk134","asdfasdf", 1, 12022017,132430);
     //    return data;
     //}
-
-    //TODO: implement function
-    //public void getAllDevices(){}
-
-
 
     //TODO: implement function
     //public void getAllDataPointsFromDevice(){}
@@ -67,6 +70,5 @@ public class WeatherObject {
         //return
     //}
 
-    //TODO:
-    //public void getValusBetween(int sdate, int stime, int ldate, int ltime){}
+
 }
