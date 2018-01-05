@@ -11,8 +11,8 @@ public class WeatherObject {
      * Constructor for a WeatherObject object if one of the unites is set to 0,
      * only functions that do not need the specific unite for their call can be used.
      *
-     * @param deviceID
-     * @param unit
+     * @param deviceID id of device for which data is to be queried
+     * @param unit unit of data that is to be queried
      */
     public WeatherObject(int deviceID, int unit){
         this.deviceID = deviceID;
@@ -35,7 +35,7 @@ public class WeatherObject {
     public void getAllUnits(){}
 
     //TODO: implement function
-    public void getDataBetween(int sdate, int stime, int ldate, int ltime){}
+    public void getDataBetween(int startDate, int startTime, int endDate, int endTime){}
 
 
 
@@ -69,6 +69,4 @@ public class WeatherObject {
     //public void getAvgForTimeInterval(int intervel, int unitType){
         //return
     //}
-
-
 }

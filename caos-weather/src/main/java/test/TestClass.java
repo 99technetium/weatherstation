@@ -2,7 +2,6 @@ package test;
 
 import database.DataBaseConfig;
 import database.WeatherObject;
-import network.Server;
 
 import java.io.IOException;
 
@@ -17,7 +16,7 @@ public class TestClass {
         DataBaseConfig config = new DataBaseConfig();
         boolean success = true;
         try {
-            config.initalConfig();
+            config.initialConfig();
         } catch (IOException e) {
             e.printStackTrace();
         }
