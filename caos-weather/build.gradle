@@ -3,14 +3,26 @@ version '0.1'
 apply plugin: 'java'
 apply plugin: 'application'
 
-mainClassName = 'hello.HelloWorld'
+mainClassName = 'test.TestClass'
 
 sourceCompatibility = 1.8
 
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
+configurations {
+    driver
+}
+
 dependencies {
+    compile group: 'org.apache.derby', name: 'derby', version: '10.14.1.0'
     testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'test.TestClass'
+    }
 }
