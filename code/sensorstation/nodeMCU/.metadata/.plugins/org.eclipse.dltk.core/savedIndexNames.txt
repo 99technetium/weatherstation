@@ -1,0 +1,1 @@
+/media/marc/HOME/home/docs/studium/17HS/CAOS/weatherstation/code/sensorstation/nodeMCU/.metadata/.plugins/org.eclipse.dltk.core/1309632604.index

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="installedFeatures">
+		<item value="org.eclipse.dltk.core:5.8.0.201706030400"/>
+		<item value="org.eclipse.emf.common:2.13.0.v20170609-0707"/>
+		<item value="org.eclipse.emf.ecore:2.13.0.v20170609-0707"/>
+		<item value="org.eclipse.help:2.2.100.v20170612-0950"/>
+		<item value="org.eclipse.ldt.core:1.4.1.201706020937"/>
+		<item value="org.eclipse.ldt.lua52:1.4.0.201706020937"/>
+		<item value="org.eclipse.ldt.product:1.4.1.201708161319"/>
+		<item value="org.eclipse.ldt:1.4.1.201706020937"/>
+		<item value="org.eclipse.platform:4.7.0.v20170612-1255"/>
+		<item value="org.eclipse.rcp:4.7.0.v20170612-1255"/>
+	</list>
+</section>

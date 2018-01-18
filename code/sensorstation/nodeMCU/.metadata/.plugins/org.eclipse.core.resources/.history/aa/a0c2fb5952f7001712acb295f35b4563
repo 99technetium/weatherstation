@@ -1,0 +1,7 @@
+local function main()
+wifi.setmode(wifi.STATION)
+wifi.sta.config("Apartment_EG_2.4GHz_new", "5455922329870587")
+print(wifi.sta.getip())
+
+end
+main()
