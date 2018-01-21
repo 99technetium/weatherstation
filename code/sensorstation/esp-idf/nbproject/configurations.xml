@@ -1,0 +1,1105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="100">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="." name="0">
+      <df name="components">
+        <df name="arduino">
+          <df name="cores">
+            <df name="esp32">
+              <df name="libb64">
+                <in>cdecode.c</in>
+                <in>cencode.c</in>
+              </df>
+              <in>Esp.cpp</in>
+              <in>HardwareSerial.cpp</in>
+              <in>IPAddress.cpp</in>
+              <in>IPv6Address.cpp</in>
+              <in>MD5Builder.cpp</in>
+              <in>Print.cpp</in>
+              <in>Stream.cpp</in>
+              <in>StreamString.cpp</in>
+              <in>WMath.cpp</in>
+              <in>WString.cpp</in>
+              <in>base64.cpp</in>
+              <in>cbuf.cpp</in>
+              <in>esp32-hal-adc.c</in>
+              <in>esp32-hal-bt.c</in>
+              <in>esp32-hal-dac.c</in>
+              <in>esp32-hal-gpio.c</in>
+              <in>esp32-hal-i2c.c</in>
+              <in>esp32-hal-ledc.c</in>
+              <in>esp32-hal-matrix.c</in>
+              <in>esp32-hal-misc.c</in>
+              <in>esp32-hal-sigmadelta.c</in>
+              <in>esp32-hal-spi.c</in>
+              <in>esp32-hal-time.c</in>
+              <in>esp32-hal-timer.c</in>
+              <in>esp32-hal-touch.c</in>
+              <in>esp32-hal-uart.c</in>
+              <in>main.cpp</in>
+              <in>stdlib_noniso.c</in>
+              <in>wiring_pulse.c</in>
+              <in>wiring_shift.c</in>
+            </df>
+          </df>
+          <df name="libraries">
+            <df name="ArduinoOTA">
+              <df name="src">
+                <in>ArduinoOTA.cpp</in>
+              </df>
+            </df>
+            <df name="BLE">
+              <df name="src">
+                <in>BLE2902.cpp</in>
+                <in>BLE2904.cpp</in>
+                <in>BLEAddress.cpp</in>
+                <in>BLEAdvertisedDevice.cpp</in>
+                <in>BLEAdvertising.cpp</in>
+                <in>BLEBeacon.cpp</in>
+                <in>BLECharacteristic.cpp</in>
+                <in>BLECharacteristicMap.cpp</in>
+                <in>BLEClient.cpp</in>
+                <in>BLEDescriptor.cpp</in>
+                <in>BLEDescriptorMap.cpp</in>
+                <in>BLEDevice.cpp</in>
+                <in>BLEExceptions.cpp</in>
+                <in>BLEHIDDevice.cpp</in>
+                <in>BLERemoteCharacteristic.cpp</in>
+                <in>BLERemoteDescriptor.cpp</in>
+                <in>BLERemoteService.cpp</in>
+                <in>BLEScan.cpp</in>
+                <in>BLESecurity.cpp</in>
+                <in>BLEServer.cpp</in>
+                <in>BLEService.cpp</in>
+                <in>BLEServiceMap.cpp</in>
+                <in>BLEUUID.cpp</in>
+                <in>BLEUtils.cpp</in>
+                <in>BLEValue.cpp</in>
+                <in>FreeRTOS.cpp</in>
+                <in>GeneralUtils.cpp</in>
+              </df>
+            </df>
+            <df name="DNSServer">
+              <df name="src">
+                <in>DNSServer.cpp</in>
+              </df>
+            </df>
+            <df name="EEPROM">
+              <in>EEPROM.cpp</in>
+            </df>
+            <df name="ESPmDNS">
+              <df name="src">
+                <in>ESPmDNS.cpp</in>
+              </df>
+            </df>
+            <df name="FS">
+              <df name="src">
+                <in>FS.cpp</in>
+                <in>vfs_api.cpp</in>
+              </df>
+            </df>
+            <df name="HTTPClient">
+              <df name="src">
+                <in>HTTPClient.cpp</in>
+              </df>
+            </df>
+            <df name="Preferences">
+              <df name="src">
+                <in>Preferences.cpp</in>
+              </df>
+            </df>
+            <df name="SD">
+              <df name="src">
+                <in>SD.cpp</in>
+                <in>sd_diskio.cpp</in>
+                <in>sd_diskio_crc.c</in>
+              </df>
+            </df>
+            <df name="SD_MMC">
+              <df name="src">
+                <in>SD_MMC.cpp</in>
+              </df>
+            </df>
+            <df name="SimpleBLE">
+              <df name="src">
+                <in>SimpleBLE.cpp</in>
+              </df>
+            </df>
+            <df name="SPI">
+              <df name="src">
+                <in>SPI.cpp</in>
+              </df>
+            </df>
+            <df name="SPIFFS">
+              <df name="src">
+                <in>SPIFFS.cpp</in>
+              </df>
+            </df>
+            <df name="Update">
+              <df name="src">
+                <in>Updater.cpp</in>
+              </df>
+            </df>
+            <df name="WiFi">
+              <df name="src">
+                <in>ETH.cpp</in>
+                <in>WiFi.cpp</in>
+                <in>WiFiAP.cpp</in>
+                <in>WiFiClient.cpp</in>
+                <in>WiFiGeneric.cpp</in>
+                <in>WiFiMulti.cpp</in>
+                <in>WiFiSTA.cpp</in>
+                <in>WiFiScan.cpp</in>
+                <in>WiFiServer.cpp</in>
+                <in>WiFiUdp.cpp</in>
+              </df>
+            </df>
+            <df name="WiFiClientSecure">
+              <df name="src">
+                <in>WiFiClientSecure.cpp</in>
+                <in>ssl_client.cpp</in>
+              </df>
+            </df>
+            <df name="Wire">
+              <df name="src">
+                <in>Wire.cpp</in>
+              </df>
+            </df>
+          </df>
+        </df>
+      </df>
+      <df name="main">
+        <in>ConfigParser.cpp</in>
+        <in>ConfigParser.h</in>
+        <in>SPIFFSAccess.cpp</in>
+        <in>SPIFFSAccess.h</in>
+        <in>Transmitter.cpp</in>
+        <in>Transmitter.h</in>
+        <in>dissmiss.txt</in>
+        <in>main.cpp</in>
+      </df>
+    </df>
+    <logicalFolder name="kconfig"
+                   displayName="kconfig"
+                   projectFiles="true"
+                   root="../../../tools/sensorstation/esp-idf/tools/kconfig">
+      <logicalFolder name="lxdialog" displayName="lxdialog" projectFiles="true">
+        <itemPath>../../../tools/sensorstation/esp-idf/tools/kconfig/lxdialog/checklist.c</itemPath>
+        <itemPath>../../../tools/sensorstation/esp-idf/tools/kconfig/lxdialog/dialog.h</itemPath>
+        <itemPath>../../../tools/sensorstation/esp-idf/tools/kconfig/lxdialog/inputbox.c</itemPath>
+        <itemPath>../../../tools/sensorstation/esp-idf/tools/kconfig/lxdialog/menubox.c</itemPath>
+        <itemPath>../../../tools/sensorstation/esp-idf/tools/kconfig/lxdialog/textbox.c</itemPath>
+        <itemPath>../../../tools/sensorstation/esp-idf/tools/kconfig/lxdialog/util.c</itemPath>
+        <itemPath>../../../tools/sensorstation/esp-idf/tools/kconfig/lxdialog/yesno.c</itemPath>
+      </logicalFolder>
+      <itemPath>../../../tools/sensorstation/esp-idf/tools/kconfig/conf.c</itemPath>
+      <itemPath>../../../tools/sensorstation/esp-idf/tools/kconfig/confdata.c</itemPath>
+      <itemPath>../../../tools/sensorstation/esp-idf/tools/kconfig/expr.c</itemPath>
+      <itemPath>../../../tools/sensorstation/esp-idf/tools/kconfig/expr.h</itemPath>
+      <itemPath>../../../tools/sensorstation/esp-idf/tools/kconfig/list.h</itemPath>
+      <itemPath>../../../tools/sensorstation/esp-idf/tools/kconfig/lkc.h</itemPath>
+      <itemPath>../../../tools/sensorstation/esp-idf/tools/kconfig/lkc_proto.h</itemPath>
+      <itemPath>../../../tools/sensorstation/esp-idf/tools/kconfig/mconf.c</itemPath>
+      <itemPath>../../../tools/sensorstation/esp-idf/tools/kconfig/menu.c</itemPath>
+      <itemPath>../../../tools/sensorstation/esp-idf/tools/kconfig/symbol.c</itemPath>
+      <itemPath>../../../tools/sensorstation/esp-idf/tools/kconfig/util.c</itemPath>
+      <itemPath>../../../tools/sensorstation/esp-idf/tools/kconfig/zconf.hash.c</itemPath>
+      <itemPath>../../../tools/sensorstation/esp-idf/tools/kconfig/zconf.lex.c</itemPath>
+      <itemPath>../../../tools/sensorstation/esp-idf/tools/kconfig/zconf.tab.c</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+      <itemPath>nbproject/private/launcher.properties</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <compilerSet>ESP32|GNU</compilerSet>
+        <dependencyChecking>false</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <codeAssistance>
+      </codeAssistance>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>.</buildCommandWorkingDir>
+          <buildCommand>${MAKE} -j6 -f Makefile</buildCommand>
+          <cleanCommand>${MAKE} -j6 -f Makefile clean</cleanCommand>
+          <executablePath></executablePath>
+        </makeTool>
+        <preBuild>
+          <preBuildCommandWorkingDir>.</preBuildCommandWorkingDir>
+          <preBuildCommand></preBuildCommand>
+        </preBuild>
+      </makefileType>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/conf.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/confdata.c"
+            ex="true"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/expr.c"
+            ex="true"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/lxdialog/checklist.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/lxdialog/inputbox.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/lxdialog/menubox.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/lxdialog/textbox.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/lxdialog/util.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/lxdialog/yesno.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/mconf.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/menu.c"
+            ex="true"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/symbol.c"
+            ex="true"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/util.c"
+            ex="true"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/zconf.hash.c"
+            ex="true"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/zconf.lex.c"
+            ex="true"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/zconf.tab.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <folder path="kconfig">
+        <cTool>
+          <incDir>
+            <pElem>/usr/include/ncursesw</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>CURSES_LOC=&lt;ncurses.h></Elem>
+            <Elem>LOCALE</Elem>
+            <Elem>NCURSES_WIDECHAR=1</Elem>
+            <Elem>_GNU_SOURCE</Elem>
+          </preprocessorList>
+        </cTool>
+      </folder>
+      <folder path="kconfig/lxdialog">
+        <cTool>
+          <incDir>
+            <pElem>../../../tools/sensorstation/esp-idf/tools/kconfig</pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <item path="main/ConfigParser.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="main/ConfigParser.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main/SPIFFSAccess.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="main/SPIFFSAccess.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main/Transmitter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="main/Transmitter.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main/dissmiss.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+    <conf name="App" type="0">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>false</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <flagsDictionary>
+        <element flagsID="0" commonFlags="-std=c++14"/>
+      </flagsDictionary>
+      <codeAssistance>
+      </codeAssistance>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>.</buildCommandWorkingDir>
+          <buildCommand>${MAKE} -j6 app</buildCommand>
+          <cleanCommand>${MAKE} -j6 clean</cleanCommand>
+          <executablePath></executablePath>
+        </makeTool>
+        <preBuild>
+          <preBuildCommandWorkingDir>.</preBuildCommandWorkingDir>
+          <preBuildCommand></preBuildCommand>
+        </preBuild>
+      </makefileType>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/conf.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+        <cTool>
+          <incDir>
+            <pElem>/usr/include/ncursesw</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>CURSES_LOC=&lt;ncurses.h></Elem>
+            <Elem>LOCALE</Elem>
+            <Elem>NCURSES_WIDECHAR=1</Elem>
+            <Elem>_GNU_SOURCE</Elem>
+          </preprocessorList>
+        </cTool>
+      </item>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/confdata.c"
+            ex="true"
+            tool="3"
+            flavor2="2">
+      </item>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/expr.c"
+            ex="true"
+            tool="3"
+            flavor2="2">
+      </item>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/lxdialog/checklist.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/lxdialog/inputbox.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/lxdialog/menubox.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/lxdialog/textbox.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/lxdialog/util.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/lxdialog/yesno.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/mconf.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+        <cTool>
+          <incDir>
+            <pElem>/usr/include/ncursesw</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>CURSES_LOC=&lt;ncurses.h></Elem>
+            <Elem>LOCALE</Elem>
+            <Elem>NCURSES_WIDECHAR=1</Elem>
+            <Elem>_GNU_SOURCE</Elem>
+          </preprocessorList>
+        </cTool>
+      </item>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/menu.c"
+            ex="true"
+            tool="3"
+            flavor2="2">
+      </item>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/symbol.c"
+            ex="true"
+            tool="3"
+            flavor2="2">
+      </item>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/util.c"
+            ex="true"
+            tool="3"
+            flavor2="2">
+      </item>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/zconf.hash.c"
+            ex="true"
+            tool="3"
+            flavor2="2">
+      </item>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/zconf.lex.c"
+            ex="true"
+            tool="3"
+            flavor2="2">
+      </item>
+      <item path="../../../tools/sensorstation/esp-idf/tools/kconfig/zconf.tab.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+        <cTool>
+          <incDir>
+            <pElem>/usr/include/ncursesw</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>CURSES_LOC=&lt;ncurses.h></Elem>
+            <Elem>LOCALE</Elem>
+            <Elem>NCURSES_WIDECHAR=1</Elem>
+            <Elem>_GNU_SOURCE</Elem>
+          </preprocessorList>
+        </cTool>
+      </item>
+      <item path="components/arduino/cores/esp32/Esp.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/cores/esp32/HardwareSerial.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/cores/esp32/IPAddress.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/cores/esp32/IPv6Address.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/cores/esp32/MD5Builder.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/cores/esp32/Print.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/cores/esp32/Stream.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/cores/esp32/StreamString.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/cores/esp32/WMath.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/cores/esp32/WString.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/cores/esp32/base64.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/cores/esp32/cbuf.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/cores/esp32/esp32-hal-adc.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="components/arduino/cores/esp32/esp32-hal-bt.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="components/arduino/cores/esp32/esp32-hal-dac.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="components/arduino/cores/esp32/esp32-hal-gpio.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="components/arduino/cores/esp32/esp32-hal-i2c.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="components/arduino/cores/esp32/esp32-hal-ledc.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="components/arduino/cores/esp32/esp32-hal-matrix.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="components/arduino/cores/esp32/esp32-hal-misc.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="components/arduino/cores/esp32/esp32-hal-sigmadelta.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="components/arduino/cores/esp32/esp32-hal-spi.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="components/arduino/cores/esp32/esp32-hal-time.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="components/arduino/cores/esp32/esp32-hal-timer.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="components/arduino/cores/esp32/esp32-hal-touch.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="components/arduino/cores/esp32/esp32-hal-uart.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="components/arduino/cores/esp32/libb64/cdecode.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="components/arduino/cores/esp32/libb64/cencode.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="components/arduino/cores/esp32/main.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/cores/esp32/stdlib_noniso.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="components/arduino/cores/esp32/wiring_pulse.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="components/arduino/cores/esp32/wiring_shift.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="components/arduino/libraries/ArduinoOTA/src/ArduinoOTA.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/BLE/src/BLE2902.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/BLE/src/BLE2904.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/BLE/src/BLEAddress.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/BLE/src/BLEAdvertisedDevice.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/BLE/src/BLEAdvertising.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/BLE/src/BLEBeacon.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/BLE/src/BLECharacteristic.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/BLE/src/BLECharacteristicMap.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/BLE/src/BLEClient.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/BLE/src/BLEDescriptor.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/BLE/src/BLEDescriptorMap.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/BLE/src/BLEDevice.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/BLE/src/BLEExceptions.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/BLE/src/BLEHIDDevice.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/BLE/src/BLERemoteCharacteristic.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/BLE/src/BLERemoteDescriptor.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/BLE/src/BLERemoteService.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/BLE/src/BLEScan.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/BLE/src/BLESecurity.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/BLE/src/BLEServer.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/BLE/src/BLEService.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/BLE/src/BLEServiceMap.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/BLE/src/BLEUUID.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/BLE/src/BLEUtils.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/BLE/src/BLEValue.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/BLE/src/FreeRTOS.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/BLE/src/GeneralUtils.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/DNSServer/src/DNSServer.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/EEPROM/EEPROM.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/ESPmDNS/src/ESPmDNS.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/FS/src/FS.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/FS/src/vfs_api.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/HTTPClient/src/HTTPClient.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/Preferences/src/Preferences.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/SD/src/SD.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/SD/src/sd_diskio.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/SD/src/sd_diskio_crc.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="components/arduino/libraries/SD_MMC/src/SD_MMC.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/SPI/src/SPI.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/SPIFFS/src/SPIFFS.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/SimpleBLE/src/SimpleBLE.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/Update/src/Updater.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/WiFi/src/ETH.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/WiFi/src/WiFi.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/WiFi/src/WiFiAP.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/WiFi/src/WiFiClient.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/WiFi/src/WiFiGeneric.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/WiFi/src/WiFiMulti.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/WiFi/src/WiFiSTA.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/WiFi/src/WiFiScan.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/WiFi/src/WiFiServer.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/WiFi/src/WiFiUdp.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/WiFiClientSecure/src/WiFiClientSecure.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/WiFiClientSecure/src/ssl_client.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="components/arduino/libraries/Wire/src/Wire.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <folder path="kconfig/lxdialog">
+        <cTool>
+          <incDir>
+            <pElem>/usr/include/ncursesw</pElem>
+            <pElem>../../../tools/sensorstation/esp-idf/tools/kconfig</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>CURSES_LOC=&lt;ncurses.h></Elem>
+            <Elem>LOCALE</Elem>
+            <Elem>NCURSES_WIDECHAR=1</Elem>
+            <Elem>_GNU_SOURCE</Elem>
+          </preprocessorList>
+        </cTool>
+      </folder>
+      <item path="main/ConfigParser.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="main/ConfigParser.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main/SPIFFSAccess.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="main/SPIFFSAccess.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main/Transmitter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="main/Transmitter.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main/dissmiss.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
