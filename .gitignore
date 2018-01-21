@@ -1,8 +1,8 @@
 /basis-staion/part_dejan/BasisStation/nbproject/private/
 # Marc
-/tools/nodeMCU
-/tools/export_esp_paths.sh
-/tools/paths.txt
+/tools/sensorstation/nodemcu
+/tools/sensorstation/export_esp_paths.sh
+/tools/sensorstation/paths.txt
 /pictures/sensorstation/dismissed/
 /code/sensorstation/esp-idf/build/
 /code/sensorstation/esp-idf/nbproject/private/
