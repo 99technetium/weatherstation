@@ -1,0 +1,72 @@
+
+/*
+static EventGroupHandle_t wifi_event_group;
+
+const int CONNECTED_BIT = BIT0;
+const int DISCONNECTED_BIT = BIT1;
+
+esp_err_t event_handler(void *ctx, system_event_t *event)
+{
+    switch(event->event_id) {
+        case SYSTEM_EVENT_STA_GOT_IP:
+            xEventGroupClearBits(wifi_event_group, DISCONNECTED_BIT);
+            xEventGroupSetBits(wifi_event_group, CONNECTED_BIT);
+            break;
+    }
+    return ESP_OK;
+}
+
+void wifi_connect(void)
+{
+    wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+    wifi_event_group = xEventGroupCreate();
+    ESP_ERROR_CHECK( esp_wifi_init(&cfg) );
+    ESP_ERROR_CHECK( esp_wifi_set_storage(WIFI_STORAGE_RAM) );    
+    ESP_ERROR_CHECK( esp_wifi_set_mode(WIFI_MODE_STA) );
+    /*wifi_config_t sta_config = {
+        .sta = {
+            .ssid = "Apartment_EG_2.4GHz_new",
+            .password = "5455922329870587",
+            .bssid_set = false
+        }
+    };*//*
+    wifi_config_t wifi_cfg;
+    wifi_cfg.sta.ssid = "Apartment_EG_2.4GHz_new";
+    wifi_cfg.sta.password = "5455922329870587";
+    ESP_ERROR_CHECK( esp_wifi_set_config(WIFI_IF_STA, &wifi_cfg) );
+    ESP_ERROR_CHECK( esp_wifi_start() );
+    ESP_ERROR_CHECK( esp_wifi_connect() );
+}
+
+void app_main(void)
+{
+    nvs_flash_init();
+    tcpip_adapter_init();
+    ESP_ERROR_CHECK( esp_event_loop_init(event_handler, NULL) );
+    initArduino();
+
+    wifi_connect();
+    
+    /**
+    ESP_ERROR_CHECK( esp_wifi_set_mode(WIFI_MODE_AP) );
+    wifi_config_t ap_config = {
+        .ap = {
+            .ssid = "access_point_name",
+            .password = "password",
+            .authmode =  WIFI_AUTH_WPA2_PSK,
+            .max_connection = 4
+        }
+    };
+    ESP_ERROR_CHECK( esp_wifi_set_config(WIFI_IF_AP, &ap_config) );
+     **/
+    
+/*
+    gpio_set_direction(GPIO_NUM_4, GPIO_MODE_OUTPUT);
+    int level = 0;
+    while (true) {
+        gpio_set_level(GPIO_NUM_4, level);
+        level = !level;
+        vTaskDelay(300 / portTICK_PERIOD_MS);
+    }
+}
+*/

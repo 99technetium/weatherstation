@@ -1,0 +1,3 @@
+[submodule "code/sensorstation/esp-idf/components/arduino"]
+	path = code/sensorstation/esp-idf/components/arduino
+	url = https://github.com/espressif/arduino-esp32.git
