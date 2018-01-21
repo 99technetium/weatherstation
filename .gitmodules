@@ -1,3 +1,9 @@
 [submodule "code/sensorstation/esp-idf/components/arduino"]
 	path = code/sensorstation/esp-idf/components/arduino
 	url = https://github.com/espressif/arduino-esp32.git
+[submodule "tools/sensorstation/esp-idf"]
+	path = tools/sensorstation/esp-idf
+	url = https://github.com/espressif/esp-idf.git
+[submodule "tools/sensorstation/mkspiffs"]
+	path = tools/sensorstation/mkspiffs
+	url = https://github.com/igrr/mkspiffs.git
