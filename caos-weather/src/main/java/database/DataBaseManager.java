@@ -9,7 +9,7 @@ import java.sql.Statement;
  * DataBaseManger abstracts access to the sql database.
  */
 public class DataBaseManager {
-    DataBaseConfig config = new DataBaseConfig();;
+    DataBaseConfig config = new DataBaseConfig();
     static final String JDBC_DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
     static String DB_NAME;
 
@@ -25,7 +25,8 @@ public class DataBaseManager {
     static final String DB_URL = "jdbc:derby:" + DB_NAME + ";create=true";
 
     /**
-     * config Database is used to configure the database, it should only be used with sql statements that do not return any statements.
+     * config Database is used to configure the database, it should only be used
+     * with sql statements that do not return any statements.
      *
      * @param sqlStatement for configuring to configure the database
      */
