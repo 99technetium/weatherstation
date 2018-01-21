@@ -1,6 +1,13 @@
 /basis-staion/part_dejan/BasisStation/nbproject/private/
 /tools/
+# Marc
 /pictures/sensorstation/dismissed/
+/code/sensorstation/esp-idf/build/
+/code/sensorstation/esp-idf/nbproject/private/
+/code/sensorstation/nodeMCU
+
+
+
 
 # Compiled Lua sources
 luac.out
