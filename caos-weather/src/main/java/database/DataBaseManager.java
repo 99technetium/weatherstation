@@ -1,5 +1,7 @@
 package database;
 
+import datapoint.DataPoint;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -24,13 +26,18 @@ public class DataBaseManager {
 
     static final String DB_URL = "jdbc:derby:" + DB_NAME + ";create=true";
 
+    public void initalConfig(String sqlStatement){
+        sendToDatabase(sqlStatement);
+
+    }
+
     /**
      * config Database is used to configure the database, it should only be used
      * with sql statements that do not return any statements.
      *
      * @param sqlStatement for configuring to configure the database
      */
-    public void configDatabase(String sqlStatement){
+    private void sendToDatabase(String sqlStatement){
         Connection connection;
         Statement statement = null;
 
@@ -58,6 +65,20 @@ public class DataBaseManager {
                 e.printStackTrace();
             }
         }
+    }
+
+    /**
+     * Adds a single DataPoint to the database
+     *
+     * @param dataPoint new data that is to be added to database
+     */
+    public void addDataPoint(DataPoint dataPoint){
+        String sql = "INSERT INTO WEATHER_DATA VALUES "
+                + dataPoint.getDeviceID() + ","
+                + dataPoint.getSensorID() + ","
+                + dataPoint.getValue()+ ","
+                + dataPoint.getDate() + ","
+                + dataPoint.getTime() + ";";
     }
 
     /**
