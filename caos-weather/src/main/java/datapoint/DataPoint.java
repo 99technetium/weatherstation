@@ -3,7 +3,7 @@ package datapoint;
 /**
  * The DataPoint class represents a single datapoint that was received from the sensor station.
  * DataPoints are returned when queering the SQL database through the WeatherObject and the data
- * that is sent form the Sensor station is parsed and saved in a Data point in the ProtocolHandler
+ * that is sent form the Sensor station is parsed and saved in a Data point in the JsonHandler
  * class.
  *
  * A data point contains a value, unit, date and time of the measurement.
