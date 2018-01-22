@@ -11,13 +11,13 @@
 #include "SPIFFSAccess.h"
 #include "ConfigParser.h"
 #include "esp_err.h"
-#define LOG_LOCAL_LEVEL ESP_LOG_VERBOSE
+//#define LOG_LOCAL_LEVEL ESP_LOG_VERBOSE
 #include "esp_log.h"
+#include "Communicator.h"
 #include <WiFi.h>
+#include "IPAddress.h"
 
 
-const char* ssid     = "Apartment_EG_2.4GHz_new";
-const char* password = "5455922329870587";
 
 const char* host = "data.sparkfun.com";
 const char* streamId   = "....................";
@@ -32,6 +32,21 @@ extern "C" void app_main(void)
     
     Serial.begin(115200);
     delay(10);
+    
+    std::string ssid     = "Apartment_EG_2.4GHz_new";
+    std::string password = "5455922329870587";
+    
+    uint16_t port = 8080;
+    IPAddress ip(192, 168, 5, 154);
+    
+    Communicator com;
+    com.setNetwork(ssid, password);
+    com.setServer(ip, port);
+    
+    com.startCommunication();
+    std::string msg("Test");
+    Serial.println(com.send(msg).c_str());
+    com.endCommunication();
 
     
     /*
@@ -59,12 +74,14 @@ extern "C" void app_main(void)
     ConfigParser cfg;
     cfg.countLines("/spiffs/sensors.config");
     */
+    /*
     SPIFFSAccess spiffs;
     spiffs.begin();
     spiffs.listDir(SPIFFS, "/", 0);
     spiffs.writeFile(SPIFFS, "/test.txt", "Das ist ein Test");
     spiffs.readFile(SPIFFS, "/test.txt");
     spiffs.readFile(SPIFFS, "/sensors.config");
+     * */
     /*
     while(1) {
         loop();
