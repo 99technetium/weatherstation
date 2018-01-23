@@ -80,7 +80,7 @@ caos-weather/null/
 *.dat
 
 # Gradle files
-*.gradle/
+**/.gradle/
 caos-weather/build/
 
 # Avoid ignoring docs
