@@ -71,6 +71,32 @@ public class DataBaseConfig {
         return setting;
     }
 
+    public boolean isDbConfiged(){
+        Properties prop = new Properties();
+        InputStream test = null;
+        boolean value = true;
+        try {
+
+            test = new FileInputStream("config.properties");
+
+            // load a properties file
+            prop.load(test);
+
+        } catch (IOException ex) {
+            System.out.println("db not configured");
+            value = false;
+        } finally {
+            if (test != null) {
+                try {
+                    test.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return value;
+    }
+
     /**
      * Method can be used to change the password for the database.
      * @param password new password for DB
