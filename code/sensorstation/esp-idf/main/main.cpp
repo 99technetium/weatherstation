@@ -25,6 +25,7 @@ const char* privateKey = "....................";
 
 extern "C" void app_main(void)
 {
+
     nvs_flash_init();
     tcpip_adapter_init();
     //ESP_ERROR_CHECK( esp_event_loop_init(event_handler, NULL) );
@@ -32,23 +33,6 @@ extern "C" void app_main(void)
     
     Serial.begin(115200);
     delay(10);
-    
-    std::string ssid     = "Apartment_EG_2.4GHz_new";
-    std::string password = "5455922329870587";
-    
-    uint16_t port = 8080;
-    IPAddress ip(192, 168, 5, 154);
-    
-    Communicator com;
-    com.setNetwork(ssid, password);
-    com.setServer(ip, port);
-    
-    com.startCommunication();
-    std::string msg("Test");
-    Serial.println(com.send(msg).c_str());
-    com.endCommunication();
-
-    
     /*
     // We start by connecting to a WiFi network
 
@@ -82,27 +66,29 @@ extern "C" void app_main(void)
     spiffs.readFile(SPIFFS, "/test.txt");
     spiffs.readFile(SPIFFS, "/sensors.config");
      * */
-    /*
+    
+    analogSetPinAttenuation(GPIO_NUM_2, adc_attenuation_t::ADC_0db);
+    Serial.println("Reading battery voltage...");
+    
     while(1) {
         loop();
         delay(2000);
     }
-     * */
+    
 }
 
 int value = 0;
 
 void loop()
 {
-    Serial.println("Reading battery voltage...");
     int value = -1;
     value = analogRead(GPIO_NUM_2);
-    Serial.print("Value:");
-    Serial.println(value);
-    double mV_batt = 1.709629933929*value;
+    double mV_batt = 1.79246172980286*value;
     String mV_batt_str = String(mV_batt, 2);
     String mV_batt_label = mV_batt_str + " mV";
-    Serial.println(mV_batt_label);
+    Serial.print(mV_batt_label);
+    Serial.print(" - ");
+    Serial.println(value);
 }
 
 void wifi_connect()

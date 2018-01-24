@@ -7,3 +7,6 @@
 [submodule "tools/sensorstation/mkspiffs"]
 	path = tools/sensorstation/mkspiffs
 	url = https://github.com/igrr/mkspiffs.git
+[submodule "code/sensorstation/esp-idf/components/arduino-json"]
+	path = code/sensorstation/esp-idf/components/arduino-json
+	url = https://github.com/bblanchon/ArduinoJson.git

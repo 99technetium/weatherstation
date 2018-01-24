@@ -10,129 +10,45 @@
  * 
  * Created on 22. Januar 2018, 03:48
  */
-#include "WiFi.h"
-#include "IPAddress.h"
 
 #include "Communicator.h"
 
-Communicator::Communicator() {
-}
+#include "Commander.h"
+#include "ArduinoJson.h"
 
-Communicator::Communicator(const Communicator& orig) {
-}
-
-Communicator::~Communicator() {
-}
-
-int Communicator::startCommunication()
+Communicator::Communicator(Commander& _Origin) 
 {
-    Serial.print("Connecting to access point ");
-    Serial.print(tSSID.c_str());
-    
-    unsigned long ttl = 0;
-    WiFi.begin(tSSID.c_str(), tKey.c_str());    
-    while (WiFi.status() != WL_CONNECTED) {
-        if(ttl>timeout_connectNetwork_ms ) {
-            Serial.println("timeout! Powering down WiFi.");
-            Serial.print("Error: ");
-            Serial.println(WiFi.status());
-            WiFi.disconnect(true);
-            return -1;
-        }
-        delay(500);
-        ttl = ttl + 500;        
-        Serial.print(".");
-    }
-    
-    Serial.println("connection established!");
-    
-    Serial.print("Assigned IPv4: ");
-    Serial.println(WiFi.localIP());
-        
-    Serial.print("Connecting to Server ");
-    Serial.print(tIP.toString());
-    Serial.print(":");
-    Serial.println(tPort);
-    
-    
-    if (!client.connect(tIP, tPort)) {
-        Serial.println("...failed!");
-        return -2;
-    } else {
-        Serial.println("...connected!");
-    }
-    
-    return 1;
+    cmdr = &_Origin;
 }
 
-int Communicator::endCommunication()
+Communicator::Communicator(const Communicator& orig) 
 {
-    Serial.print("Disconnecting from server and network");
-    
-    client.stop();
-    WiFi.disconnect(true);
-    
-    unsigned long ttl = 0;
-    while(client.connected() || WiFi.status() == WL_CONNECTED) 
-    {
-        if(ttl>timeout_disconnect_ms) {
-            if(client.connected()) 
-            {
-                Serial.println("failed! Still connected to server and network.");
-                return -2;
-            } else 
-            {
-                Serial.println("failed! Still connected to the network.");
-                return -1;
-            }
-        }
-        Serial.print(".");
-        ttl = ttl + 500;
-        delay(500);        
-    }
-    Serial.println("disconnected!");
-    return 1;
 }
 
-std::string Communicator::send(std::string _Data)
+Communicator::~Communicator() 
 {
-    Serial.print("Sending...");
-    Serial.println(_Data.c_str());
-
-    client.print(_Data.c_str());
-    unsigned long ttl = millis();
-    while (client.available() == 0) {
-        if (millis() - ttl > timeout_requestServer_ms) {
-            Serial.println("timeout! Try again.");
-            return NULL;
-        }
-    }
-
-    String reply = "";
-    while(client.available()) {
-        reply = reply + client.readString();
-    }
-    return std::string(reply.c_str());
 }
 
-int Communicator::setNetwork(std::string _SSID, std::string _Key)
-{ 
-    Serial.print("Set network/key to ");
-    Serial.println(_SSID.c_str());
-    
-    tSSID = _SSID;
-    tKey = _Key;
-    return 1;
+int Communicator::start(std::string _SSID, std::string _Key, IPAddress _IP, uint16_t _Port)
+{   
+    con.setNetwork(_SSID, _Key);
+    con.setServer(_IP, _Port);    
+    return con.startCommunication();   
 }
 
-int Communicator::setServer(IPAddress _IP, uint16_t _Port) 
+int Communicator::end()
 {
-    Serial.print("Set server/port to ");
-    Serial.print(_IP.toString());
-    Serial.print(":");
-    Serial.println(_Port);
-    
-    tIP = _IP;
-    tPort = _Port;
-    return 1;
+    return con.endCommunication();
+}
+
+ArduinoJson::JsonObject& Communicator::sendSensorData(Commander& _Origin, ArduinoJson::JsonObject _Data)
+{
+    StaticJsonBuffer<200> jsonBuffer;
+    return jsonBuffer.parseObject("");
+}
+
+ArduinoJson::JsonObject& Communicator::requestUpdate(Commander& _Origin, ArduinoJson::JsonObject _Config)
+{
+    StaticJsonBuffer<200> jsonBuffer;
+    return jsonBuffer.parseObject("");
 }

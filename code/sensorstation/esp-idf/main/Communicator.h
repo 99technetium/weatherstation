@@ -14,30 +14,24 @@
 #ifndef COMMUNICATOR_H
 #define COMMUNICATOR_H
 
-#include <string>
-#include "IPAddress.h"
-#include "WiFiClient.h"
+#include "Connector.h"
+#include "Commander.h"
+#include "ArduinoJson.h"
+
+
 
 class Communicator {
 public:
-    Communicator();
+    Communicator(Commander& _Origin);
     Communicator(const Communicator& orig);
     virtual ~Communicator();
-    int startCommunication();
-    int endCommunication();
-    std::string send(std::string _Data);
-    int setNetwork(std::string _SSID, std::string _Key);
-    int setServer(IPAddress _IP, uint16_t _Port);
+    int start(std::string _SSID, std::string _Key, IPAddress _IP, uint16_t _Port);
+    int end();
+    ArduinoJson::JsonObject& sendSensorData(Commander& _Origin, ArduinoJson::JsonObject _Data);
+    ArduinoJson::JsonObject& requestUpdate(Commander& _Origin, ArduinoJson::JsonObject _Config);
 private:
-    std::string tSSID, tKey;
-    IPAddress tIP;
-    uint16_t tPort;
-    WiFiClient client;
-    unsigned long timeout_connectNetwork_ms = 30000;
-    unsigned long timeout_requestServer_ms = 5000;
-    unsigned long timeout_disconnect_ms = 10000;
-    
-    
+    Connector con;    
+    Commander* cmdr;
 };
 
 #endif /* COMMUNICATOR_H */

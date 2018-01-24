@@ -169,10 +169,16 @@
         </df>
       </df>
       <df name="main">
+        <in>Commander.cpp</in>
+        <in>Commander.h</in>
+        <in>Commands.h</in>
         <in>Communicator.cpp</in>
         <in>Communicator.h</in>
+        <in>ComunicationInterface.hpp</in>
         <in>ConfigParser.cpp</in>
         <in>ConfigParser.h</in>
+        <in>Connector.cpp</in>
+        <in>Connector.h</in>
         <in>SPIFFSAccess.cpp</in>
         <in>SPIFFSAccess.h</in>
         <in>dissmiss.txt</in>
@@ -235,11 +241,11 @@
           <buildCommand>${MAKE} -j6 -f Makefile</buildCommand>
           <cleanCommand>${MAKE} -j6 -f Makefile clean</cleanCommand>
           <executablePath></executablePath>
-          <cTool>
+          <ccTool>
             <incDir>
-              <pElem>/media/marc/HOME/home/docs/studium/17HS/CAOS/weatherstation/tools/sensorstation/esp-idf/components/*</pElem>
+              <pElem>components/arduino-json</pElem>
             </incDir>
-          </cTool>
+          </ccTool>
         </makeTool>
         <preBuild>
           <preBuildCommandWorkingDir>.</preBuildCommandWorkingDir>
@@ -346,13 +352,25 @@
           </incDir>
         </cTool>
       </folder>
+      <item path="main/Commander.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="main/Commander.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main/Commands.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main/Communicator.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="main/Communicator.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="main/ComunicationInterface.hpp" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main/ConfigParser.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="main/ConfigParser.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main/Connector.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="main/Connector.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main/SPIFFSAccess.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1089,13 +1107,25 @@
           </preprocessorList>
         </cTool>
       </folder>
+      <item path="main/Commander.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="main/Commander.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main/Commands.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main/Communicator.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="main/Communicator.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="main/ComunicationInterface.hpp" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main/ConfigParser.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="main/ConfigParser.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main/Connector.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="main/Connector.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main/SPIFFSAccess.cpp" ex="false" tool="1" flavor2="0">
       </item>
