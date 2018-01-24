@@ -1,7 +1,7 @@
 package database;
 
 public class DataBaseSetup {
-    //TODO: use a trully random password
+    //TODO: use a truly random password
     static String PASS = "bad_password";
 
         DataBaseConfig config = new DataBaseConfig();
@@ -14,8 +14,9 @@ public class DataBaseSetup {
 
 
         String sql = "CREATE TABLE WEATHER_DATA "
-                + "(DEVICE_ID BIGINT NOT NULL GENERATED ALWAYS AS IDENTITY, "
+                + "(DEVICE_ID BIGINT not NULL, "
                 + "SENSOR_ID BIGINT, "
+                + "TYPE INTEGER, "
                 + "VALUE BIGINT, "
                 + "DATE INTEGER, "
                 + "TIME INTEGER) ";
