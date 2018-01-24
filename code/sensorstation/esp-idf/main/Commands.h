@@ -35,6 +35,7 @@
     #define CMD_ID_AUTH 0
 /* + + + + + + + + + + ACTION: identify + + + + + + + + + + */
         #define CMD_ACTION_ID_AUTH_IDENTIFY 0
+        #define CMD_ACTION_ID_AUTH_REGISTER 1
 /* + + + + + + + + + + + + + + + DATA: indentfy + + + + + + + + + + + + + + + */
             #define CMD_DATA_ID_IDENTIFY_DEVICE_ID 0
             #define CMD_DATA_ID_IDENTIFY_IP 1
@@ -56,8 +57,12 @@
 /* + + + + COMMAND: Config + + + + */
     #define CMD_ID_CONFIG 3
 /* + + + + + + + + + + ACTION: Sleep time + + + + + + + + + + */
-        #define CMD_ACTION_ID_CONFIG_SET_SLEEP_TIME 0
-        #define CMD_ACTION_ID_CONFIG_GET_SLEEP_TIME 1
+        #define CMD_ACTION_ID_CONFIG_SET_MINUTES_SLEEP_TIME 0
+        #define CMD_ACTION_ID_CONFIG_GET_MINUTES_SLEEP_TIME 1
+        #define CMD_ACTION_ID_CONFIG_SET_NUMBER_SENSOR_RUNS 2
+        #define CMD_ACTION_ID_CONFIG_GET_NUMBER_SENSOR_RUNS 3
+        #define CMD_ACTION_ID_CONFIG_SET_NUMBER_SAMPLINGS 4
+        #define CMD_ACTION_ID_CONFIG_GET_NUMBER_SAMPLINGS 4
 /* + + + + + + + + + + + + + + + DATA:  + + + + + + + + + + + + + + + */
             /* Value of Action of - no data */
 /* - - - - - - - - - - - - - - - DATA:  - - - - - - - - - - - - - - - */
