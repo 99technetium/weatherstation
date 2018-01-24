@@ -2,10 +2,9 @@ package database;
 
 import datapoint.DataPoint;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * DataBaseManger abstracts access to the sql database.
@@ -73,17 +72,69 @@ public class DataBaseManager {
      * @param dataPoint new data that is to be added to database
      */
     public void addDataPoint(DataPoint dataPoint){
-        String sql = "INSERT INTO WEATHER_DATA VALUES "
+        String sql = "INSERT INTO WEATHER_DATA VALUES ("
                 + dataPoint.getDeviceID() + ","
                 + dataPoint.getSensorID() + ","
+                + dataPoint.getType() + ","
                 + dataPoint.getValue()+ ","
                 + dataPoint.getDate() + ","
-                + dataPoint.getTime() + ";";
+                + dataPoint.getTime() + ")";
+
+        sendToDatabase(sql);
     }
 
     /**
-     * sendQuery is used to send a query to the database. This will return an sql
+     * getDataPoint is used to send a query to the database. This will return a List with the DataPoints that match the sql query
+     *
+     * @param sqlQuery to search database with
+     * @return a List with all the DataPoints that match the sql query
      */
-    //TODO: implement query
-    public void sendQuery(String sqlQuery){}
+    //TODO: find something better then returning List
+    public List<DataPoint> getDataPoint(String sqlQuery){
+        List<DataPoint> dataPoints = new ArrayList<>();
+
+        Connection connection;
+        Statement statement = null;
+
+        try{
+
+            Class.forName(JDBC_DRIVER);
+
+            connection = DriverManager.getConnection(DB_URL, config.getDatabaseUser(), config.getDatabasePassword());
+
+            //connecting to database
+            statement = connection.createStatement();
+
+            //setting up database
+            ResultSet result = statement.executeQuery(sqlQuery);
+
+            while (result.next()){
+                DataPoint dataPoint = new DataPoint(
+                        result.getInt("DEVICE_ID"),
+                        result.getInt("SENSOR_ID"),
+                        result.getInt("TYPE"),
+                        result.getInt("VALUE"),
+                        result.getInt("DATE"),
+                        result.getInt("TIME")
+                );
+
+                dataPoints.add(dataPoint);
+            }
+
+        } catch (SQLException se) {
+            se.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (statement != null) {
+                    statement.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return dataPoints;
+    }
 }
