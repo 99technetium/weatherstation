@@ -31,14 +31,13 @@
  */
 #define CMD_JSON_KEY "cmd"
 
-/* + + + + COMMAND: Handshake + + + + */
-    #define CMD_ID_HANDSHAKE 0
-/* + + + + + + + + + + ACTION: sign on + + + + + + + + + + */
-        #define CMD_ACTION_ID_HANDSHAKE_SIGNON 0
-        #define CMD_ACTION_ID_HANDSHAKE_CONFIRM 1
-/* + + + + + + + + + + + + + + + DATA: sign on / confirm + + + + + + + + + + + + + + + */
-            #define CMD_DATA_ID_HANDSHAKE_DEVICE_ID 0
-            #define CMD_DATA_ID_HANDSHAKE_IP 1
+/* + + + + COMMAND: Authenticate + + + + */
+    #define CMD_ID_AUTH 0
+/* + + + + + + + + + + ACTION: identify + + + + + + + + + + */
+        #define CMD_ACTION_ID_AUTH_IDENTIFY 0
+/* + + + + + + + + + + + + + + + DATA: indentfy + + + + + + + + + + + + + + + */
+            #define CMD_DATA_ID_IDENTIFY_DEVICE_ID 0
+            #define CMD_DATA_ID_IDENTIFY_IP 1
 /* - - - - - - - - - - - - - - - DATA: sign on - - - - - - - - - - - - - - - */
 /* - - - - - - - - - - ACTION: sign on - - - - - - - - - - */
 /* - - - - COMMAND: Handshake - - - - */
