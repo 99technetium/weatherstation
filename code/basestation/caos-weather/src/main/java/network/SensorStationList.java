@@ -16,7 +16,7 @@ public class SensorStationList {
     private SensorStationList(){}
 
     //TODO: implement function
-    public void addStation(String key, SensorStation sensorStation){
+    public void addStation(int key, SensorStation sensorStation){
     }
 
     //TODO: implement function

@@ -17,7 +17,9 @@ public class JsonHandler {
         String jsonString = inputString;
         DataPoint dataPoint;// = new DataPoint("","",1,1,1);
         Gson gson = new Gson();
+
         dataPoint = gson.fromJson(jsonString, DataPoint.class);
+
         return dataPoint;
     }
 }

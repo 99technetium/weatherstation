@@ -31,7 +31,7 @@ public class ReceiverThread extends Thread {
 
         manager.addDataPoint(dataPoint);
 
-        String deviceID = dataPoint.getDeviceID();
+        int deviceID = dataPoint.getDeviceID();
         list.addStation(deviceID, new SensorStation(sensorSocket));
     }
 }
