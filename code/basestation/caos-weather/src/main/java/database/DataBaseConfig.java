@@ -7,7 +7,6 @@ import java.util.Properties;
  * Configures the database at first install with sensible and secure defaults. Additionaly the class can be used to change the default password.
  */
 public class DataBaseConfig {
-    InputStream inputStream;
 
     static final String DB_NAME = "WEATHER_STATION_DATABASE";
     static final String USER = "weather_station";
@@ -18,12 +17,6 @@ public class DataBaseConfig {
     public void createPropFile(String password){
         Properties prop = new Properties();
         OutputStream output = null;
-        //TODO: use a truly random default password
-        String defaultPassword = password;
-
-        //if(password.equals("")){
-        //    PASS = defaultPassword;
-        //}
 
         try {
             output = new FileOutputStream("config.properties");
@@ -76,6 +69,32 @@ public class DataBaseConfig {
             }
         }
         return setting;
+    }
+
+    public boolean isDbConfiged(){
+        Properties prop = new Properties();
+        InputStream test = null;
+        boolean value = true;
+        try {
+
+            test = new FileInputStream("config.properties");
+
+            // load a properties file
+            prop.load(test);
+
+        } catch (IOException ex) {
+            System.out.println("db not configured");
+            value = false;
+        } finally {
+            if (test != null) {
+                try {
+                    test.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return value;
     }
 
     /**

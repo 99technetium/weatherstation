@@ -26,7 +26,7 @@ public class Server {
 
         try{
             ServerSocket BaseStationServer = new ServerSocket(port);
-            System.out.print("Server running with ip " + serverIP + ", waiting for client connection on Port " + port + "\n");
+            System.out.print("Server running with ip " + serverIP + ", waiting for Sensor Station connection on Port " + port + "\n");
             while(true) {
                 Socket socket = BaseStationServer.accept();
                 //TODO: this should create an event so that basestation knows to update gui
