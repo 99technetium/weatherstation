@@ -1,0 +1,91 @@
+%
+%	Protocol configuration 
+%	version 1.4
+%	22.02.2016
+%
+\documentclass[a4paper,12pt]{article}
+\usepackage[english]{babel}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfpages}
+\usepackage{textcomp}
+\usepackage{pdflscape}
+\usepackage{array}
+\usepackage{placeins}
+\usepackage{floatflt}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{pgfplots}
+\usepackage{ulem}
+\usepackage[absolute]{textpos}
+\usepackage{ragged2e}
+\usepackage{epstopdf}
+%paper
+\usepackage{a4wide}
+\usepackage{scrpage2}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{lastpage}
+\pagenumbering{arabic}
+\pagestyle{scrheadings}
+%font
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[babel,german=swiss]{csquotes}
+%markup
+\usepackage{amsmath}
+\usepackage{extarrows}
+\usepackage{amssymb}
+\usepackage[ampersand]{easylist}
+\usepackage[version=3]{mhchem}
+\usepackage{chemfig}
+\usepackage{titlesec}
+\usepackage{multirow}
+\usepackage{xifthen}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{N}{@{}m{0pt}@{}}
+%Roman numerals
+\newcommand{\RM}[1]{\MakeUppercase{\romannumeral #1}}
+%Substance numbering
+\newcommand{\NB}[1]{(\textbf{#1})}
+%NMR-printing
+\newcommand{\NMR}[2]{\({}^{#1}\text{#2-NMR}\)}
+%Print Et2O
+\newcommand{\Ether}[0]{\(\text{Et}_{2}\text{O}\)}
+%Symbol with circle
+\newcommand\kreis[1]{\ensuremath{\mathbin{\settowidth{\dimen7}{\mbox{$ \bigcirc$}}\makebox[0pt][l]{$\bigcirc$}\makebox[\dimen7]{#1}}}}
+%Format substance in reaction - Usage: \Sub[Number(optional)]{Formular(math-env enabled)} -> \Sub{[1]}{H_2O} -- \Sub{H_20}
+\newcommand\Sub[2][]{
+	\ifthenelse{\isempty{#1}}
+	%true
+	{$#2$}
+	%false
+	{$\underset{\NB{#1}}{#2}$}
+}
+%Reaction arrow [#1=Temp] {#2=chemicals} {#3=time}
+\newcommand\RA[4][]{
+	\ifthenelse{\isempty{#1}}
+	{\ifthenelse{\isempty{#4}}
+		{$\xrightarrow[\textsf{#3}]{\textsf{,~#2~}}$ }
+		{$\xrightarrow[\textsf{#3, #4}]{\textsf{~#2~}}$ }}	
+	{\ifthenelse{\isempty{#4}}
+		{$\xrightarrow[\begin{subarray}{c}\textsf{#3,} \\ \textsf{#1{}}^{\circ}\textsf{C}\end{subarray}]{\textsf{#2}}$}
+		{$\xrightarrow[\begin{subarray}{c}\textsf{#3,} \\ \textsf{#1{}}^{\circ}\textsf{C},~\textsf{#4}\end{subarray}]{\textsf{#2}}$}}
+}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\TEMP}[1]{\ensuremath{\text{#1}^{\circ}\text{C}}}
+\newcommand{\newtoday}{\the\day/\the\month/\the\year}
+\newcommand{\water}{$\textrm{H}_{2}\textrm{O}$}
+\newcommand{\waterSF}{\textsf{H}_{2}\textsf{O}}
+
+%Lineheight
+\renewcommand{\arraystretch}{1.5} 
+
+\pagestyle{scrheadings}
+\ihead{\TITLE}
+\ohead{Marc Schäfer \& Max Hackinger}
+\setfootsepline{0.5pt}
+\setheadsepline{0.5pt}
+\pagenumbering{arabic}
+\ifoot{\newtoday}
+\ofoot{\pagemark}

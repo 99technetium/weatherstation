@@ -54,6 +54,7 @@ RTC_DATA_ATTR bool      init_cfg = 0;
 
 Commander::Commander()
 {
+    /*
     nvs_flash_init();
     tcpip_adapter_init();
     //ESP_ERROR_CHECK( esp_event_loop_init(event_handler, NULL) );
@@ -73,20 +74,24 @@ Commander::Commander()
     powerPeripheral(false);    
     
     sleep();
- 
-    /*
-    std::string ssid     = "Apartment_EG_2.4GHz_new";
-    std::string password = "5455922329870587";
-    
-    uint16_t port = 8080;
-    IPAddress ip(192, 168, 5, 154);
     */
     
-    /*
+    while(1)
+    {        
+        int val = hallRead();
+        Serial.print("Hall: ");
+        Serial.println(val);
+        Serial.println("-----");
+    }
+    std::string ssid     = "cu";
+    std::string password = "C9zwhLPm";
+    
+    uint16_t port = 8080;
+    IPAddress ip(10, 42, 0, 1);
+    
     Communicator com(*this);
     com.start(ssid, password, ip, port);
     com.end();
-     * */
 }
 
 Commander::Commander(const Commander& orig) 
