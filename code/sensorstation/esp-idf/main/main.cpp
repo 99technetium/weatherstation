@@ -13,15 +13,13 @@
 #include "esp_err.h"
 //#define LOG_LOCAL_LEVEL ESP_LOG_VERBOSE
 #include "esp_log.h"
-#include "Communicator.h"
 #include <WiFi.h>
 #include "IPAddress.h"
+#include <sys/time.h>
 
 
-
-const char* host = "data.sparkfun.com";
-const char* streamId   = "....................";
-const char* privateKey = "....................";
+#include "Communicator.h"
+#include "Pinmap.hpp"
 
 extern "C" void app_main(void)
 {
@@ -66,13 +64,37 @@ extern "C" void app_main(void)
     spiffs.readFile(SPIFFS, "/test.txt");
     spiffs.readFile(SPIFFS, "/sensors.config");
      * */
+    pinMode(PIN_RELAY_PPWR_CTRL1, OUTPUT);
+    pinMode(PIN_RELAY_PPWR_CTRL2, OUTPUT);
+    pinMode(PIN_RELAY_AUX_CTRL1, OUTPUT);
+    pinMode(PIN_RELAY_AUX_CTRL2, OUTPUT);
+            
+    digitalWrite(PIN_RELAY_PPWR_CTRL1, LOW);
+    digitalWrite(PIN_RELAY_PPWR_CTRL2, LOW);
+    digitalWrite(PIN_RELAY_AUX_CTRL1, LOW);
+    digitalWrite(PIN_RELAY_AUX_CTRL2, LOW);
     
-    analogSetPinAttenuation(GPIO_NUM_2, adc_attenuation_t::ADC_0db);
-    Serial.println("Reading battery voltage...");
+    /*
+    delay(2000);
+    
+        digitalWrite(PIN_RELAY_AUX_CTRL2, LOW);
+        delay(10);
+        digitalWrite(PIN_RELAY_AUX_CTRL1, HIGH);
+        delay(100);
+        digitalWrite(PIN_RELAY_AUX_CTRL1, LOW);
+        delay(2000);
+        digitalWrite(PIN_RELAY_AUX_CTRL2, HIGH);
+        delay(100);
+        digitalWrite(PIN_RELAY_AUX_CTRL2, LOW);
+    */
+    
+    Commander com;
+    
     
     while(1) {
-        loop();
-        delay(2000);
+       // loop();
+    
+        delay(500);
     }
     
 }
@@ -80,17 +102,22 @@ extern "C" void app_main(void)
 int value = 0;
 
 void loop()
-{
-    int value = -1;
-    value = analogRead(GPIO_NUM_2);
-    double mV_batt = 1.79246172980286*value;
-    String mV_batt_str = String(mV_batt, 2);
-    String mV_batt_label = mV_batt_str + " mV";
-    Serial.print(mV_batt_label);
-    Serial.print(" - ");
-    Serial.println(value);
+{    
+    timeval timer;
+    
+    if(gettimeofday(&timer, NULL) < 0) 
+    {
+        Serial.println("Error getting time!");
+    } else {
+        Serial.print("Time: ");
+        Serial.print(timer.tv_sec);
+        Serial.print(".");
+        Serial.println(timer.tv_usec);
+    }   
+    
 }
 
+/*
 void wifi_connect()
 {
                 
@@ -142,3 +169,4 @@ void wifi_connect()
     Serial.println("closing connection");
     
 }
+ * */

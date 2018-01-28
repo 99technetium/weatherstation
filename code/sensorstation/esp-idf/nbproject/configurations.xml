@@ -3,6 +3,10 @@
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <df root="." name="0">
       <df name="components">
+        <df name="adafruit_ads1x15">
+          <in>Adafruit_ADS1015.cpp</in>
+          <in>Adafruit_ADS1015.h</in>
+        </df>
         <df name="arduino">
           <df name="cores">
             <df name="esp32">
@@ -179,6 +183,11 @@
         <in>ConfigParser.h</in>
         <in>Connector.cpp</in>
         <in>Connector.h</in>
+        <in>DataParser.cpp</in>
+        <in>DataParser.hpp</in>
+        <in>Pinmap.hpp</in>
+        <in>Prober.cpp</in>
+        <in>Prober.hpp</in>
         <in>SPIFFSAccess.cpp</in>
         <in>SPIFFSAccess.h</in>
         <in>dissmiss.txt</in>
@@ -244,6 +253,7 @@
           <ccTool>
             <incDir>
               <pElem>components/arduino-json</pElem>
+              <pElem>components/adafruit_ads1x15</pElem>
             </incDir>
           </ccTool>
         </makeTool>
@@ -332,6 +342,16 @@
             tool="0"
             flavor2="0">
       </item>
+      <item path="components/adafruit_ads1x15/Adafruit_ADS1015.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="components/adafruit_ads1x15/Adafruit_ADS1015.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <folder path="kconfig">
         <cTool>
           <incDir>
@@ -371,6 +391,16 @@
       <item path="main/Connector.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="main/Connector.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main/DataParser.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="main/DataParser.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main/Pinmap.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main/Prober.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="main/Prober.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main/SPIFFSAccess.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1126,6 +1156,16 @@
       <item path="main/Connector.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="main/Connector.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main/DataParser.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="main/DataParser.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main/Pinmap.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main/Prober.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="main/Prober.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main/SPIFFSAccess.cpp" ex="false" tool="1" flavor2="0">
       </item>

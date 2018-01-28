@@ -10,3 +10,6 @@
 [submodule "code/sensorstation/esp-idf/components/arduino-json"]
 	path = code/sensorstation/esp-idf/components/arduino-json
 	url = https://github.com/bblanchon/ArduinoJson.git
+[submodule "code/sensorstation/esp-idf/components/adafruit_ads1x15"]
+	path = code/sensorstation/esp-idf/components/adafruit_ads1x15
+	url = https://github.com/adafruit/Adafruit_ADS1X15.git

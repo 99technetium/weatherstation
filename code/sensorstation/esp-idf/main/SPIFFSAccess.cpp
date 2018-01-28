@@ -75,7 +75,7 @@ void SPIFFSAccess::readFile(fs::FS &fs, const char * path){
 
     Serial.print("Read from file: ");
     while(file.available()){
-        Serial.print(file.read());
+        Serial.write(file.read());
     }
     Serial.print("\n");
 }

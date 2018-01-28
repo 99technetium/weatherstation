@@ -23,8 +23,11 @@ public:
     Commander(const Commander& orig);
     virtual ~Commander();
     virtual int setConfig(unsigned int _CMD_ID, void* _Args);
+    void powerPeripheral(bool _PowerOn);
+    void powerAux(bool _PowerOn);
 private:
-
+    void initConfig();
+    void sleep(); 
 };
 
 #endif /* COMMANDER_H */

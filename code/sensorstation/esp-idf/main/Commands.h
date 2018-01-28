@@ -63,6 +63,8 @@
         #define CMD_ACTION_ID_CONFIG_GET_NUMBER_SENSOR_RUNS 3
         #define CMD_ACTION_ID_CONFIG_SET_NUMBER_SAMPLINGS 4
         #define CMD_ACTION_ID_CONFIG_GET_NUMBER_SAMPLINGS 5
+        #define CMD_ACTION_ID_CONFIG_SET_TIME 6
+        #define CMD_ACTION_ID_CONFIG_GET_TIME 7
 /* + + + + + + + + + + + + + + + DATA:  + + + + + + + + + + + + + + + */
             /* Value of Action of - no data */
 /* - - - - - - - - - - - - - - - DATA:  - - - - - - - - - - - - - - - */
