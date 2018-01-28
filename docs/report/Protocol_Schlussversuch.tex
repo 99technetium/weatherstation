@@ -28,7 +28,7 @@ Dedicated Sensor Array
 The Dedicated Sensor Array is in essence a system for measuring and collecting environmental data. The implementation is generic so the System can work with a variety of different sensor types and measure a large spectrum of environmental parameters. 
 
 
-The System is composed of two parts, one central server and several dedicated sensor stations. The sensor stations are battery powered. They measure environmental parameters, evaluate the raw data and send the values to the server over WiFi. The server receives, collects and makes the data accessible for additional applications. \\
+The System is composed of two parts, one central server and several dedicated sensor stations. The sensor stations are battery powered. It measures environmental parameters, evaluates the raw data and sends the values to the server over WiFi. The server receives, collects and makes the data accessible for additional applications. \\
 
 The technical requirements for the server are a JVM and WiFi connectivity. The WiFi connectivity can either be a direct Hotspot created by the system running the JVM or the system can be part of a network with a WiFi bridge. The sensor station requires an ESP-WROOM-32 Module with an Espressif ESP32 MCU. \\
 
@@ -36,16 +36,17 @@ The sensor station has a low power design to offer a long runtime. They provide 
 
 For the moment there are three environmental parameters that are measurable: temperature, light intensity and magnetic field strength. For monitoring of the runtime the battery voltage can also be measured.
 
-The server can handle multiple connections from sensor station. It combines and stores all sensor data received from every sensor station in a database table.\\
+The server can handle multiple connections from several sensor stations. It combines and stores all sensor data received from every sensor station in a database table.\\
 
 
 \section{Execution \& Technical Details}
 The two parts, the server and the sensor station, were respectively assigned to one team member. The server was assigned to Max, the sensor station to Marc. Initially, the general framework was determined and interfaces were defined. Subsequently, the two parts were independently developed and successively aligned. This was necessary because of the completely new development environment regarding the ESP32 and the therefore unknown possibilities and obstacles.\\
 
-The server is written in Java and uses the SQL database Apache Derby. The database is automatically configured at the first startup. The server listens for TCP/IP connections on a configurable port. The protocol is based on JSON. The server waits for a JSON frame from the sensor station, processes the frame and responds in turn with a JSON frame, containing an acknowledgement and/or commands for the sensor station.\\
+The server is written in Java and uses the SQL database Apache Derby.
+At first startup the database is automatically configured. It listens for TCP/IP connections on a configurable port. A JSON based protocol is used for communication between server and sensor station. The server waits for a JSON frame from the sensor station, processes the frame and responds in turn with a JSON frame, containing an acknowledgement and/or commands for the sensor station.\\
 
 For the sensor station, a custom PCB was designed and made to connect the sensors and I${}^{2}$C bus. Additionally, the low dropout regulator (LDO) of the ESP-WROOM-32 dev board was replaced by a high-efficiency DC switching regulator. The sensors and the I${}^{2}$C bus can be fully turned off to save energy while not acquiring analog signals. The firmware for the ESP32 is written in C++.
-The sensor station uses different run modes. In the normal run mode, the sensor station measures data, evaluates and stores them into the flash memory. Subsequently, it enters a lower run mode called deep sleep. In this mode, the sensor station uses just a fraction of energy and can wait for a special event or for a specific time to wake up and enter the normal run mode again. After a defined amount of measuring cycles, the sensor station enter the communication mode an turn on WiFi. It connects to the server, sends all the collected data, waits for a response and enters the normal mode again. Received commands getting processed and if necessary, it enters again the communication mode. Otherwise, the sensor station begins a new measuring cycle.
+The sensor station uses different run modes. In the normal run mode, the sensor station measures data, evaluates and stores it to the flash memory. Subsequently, it enters a lower run mode called deep sleep. In this mode, the sensor station uses just a fraction of the energy used in the normal run mode and can wait for a special event or for a specific time to wake up and enters the normal run mode again. After a defined amount of measuring cycles, the sensor station enters the communication mode and turns on WiFi. It connects to the server, sends all the collected data, waits for a response and enters the normal mode again. Received commands get processed and if necessary, the sensor station enters the communication mode again. Otherwise, the sensor station begins a new measuring cycle.
 \begin{table}[htbp]
 	\begin{center}
 		\begin{tabular}{|l|c|c|c|}
@@ -56,7 +57,7 @@ The sensor station uses different run modes. In the normal run mode, the sensor 
 			\hline 
 		\end{tabular} 
 	\end{center}
-	\caption{Power consumed in different modes}
+	\caption{Power consumption in different modes}
 \end{table}\\
 
 \section{Downsizing}
@@ -70,7 +71,7 @@ On the microcontroller side, we discovered a little later then we would have lik
 
 Another surprises was that the built in ADC (Analog to Digital Converter) on the ESP32 was insufficiently sensitive for our use case because of the unusual low input impedance. Thankfully there was an external ADC available which fulfilled the requirements.
 
-Communication in the group did work out quite well, even though we mostly meet remotely over skype. However the project could have probably profited from a more regular frequency of meetings, for example bi weekly. This might have made it clearer earlier on in the project that one of our members was overwhelmed and needed more support.
+Communication in the group worked well, even though we mostly meet remotely over Skype. However the project could have probably profited from a more regular frequency of meetings, for example twice a week. This might have made it clearer earlier on in the project that one of our members was overwhelmed and needed more support.
 \newpage
 \section{Pictures}
 ~
@@ -118,11 +119,9 @@ Communication in the group did work out quite well, even though we mostly meet r
 %	\bibitem{complex2} UCDavis, \emph{Coordination Numbers and Geometry}, http://chemwiki.ucdavis.edu/Core/\\Inorganic\_Chemistry/Coordination\_Chemistry/Basics\_of\_Coordination\_Chemistry/\\Coordination\_Numbers\_and\_Geometry, 23.02.2016.
 %	
 %	
-%\bibitem{housecroft} E. Housecroft,  A. G. Sharpe, \emph{Inorganic Chemistry}, Pearson, Harlow,  \textbf{2012}, p. 744 - 756.
 %
 %\bibitem{harrowfield} J. MacB. Harrowfield,  G. A. Lawrance, A. M. Sargeson, \emph{Facile Synthesis of a Macrobicylic Hexaamine Cobalt(III) Complex Based on Tris(Ethylenediamine)Cobalt(III)},  Journal of Chemical Education, \textbf{1985}, vol. 62, \# 9, p. 804 - 806.
 %
-%\bibitem{expt5} E. Housecroft,  Manual experiment 5: \emph {Coordination Chemistry} 2015. 
 %
 %\bibitem{clathrochelate} Y. Z. Voloshin,  N. A.a Kostromina, R. Krämer, "Clathrochelates: synthesis, structure, and properties" Elsevier, Amsterdam, 2002.
 %
