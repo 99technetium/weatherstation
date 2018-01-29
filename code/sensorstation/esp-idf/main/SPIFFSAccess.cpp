@@ -130,6 +130,41 @@ void SPIFFSAccess::deleteFile(fs::FS &fs, const char * path){
     }
 }
 
+int SPIFFSAccess::deleteFileWithPrefix(const char * _Prefix)
+{
+    int count = 0;
+    File root = SPIFFS.open("/");
+    if(!root){
+        Serial.println("Failed to open directory");
+        return -1;
+    }
+    if(!root.isDirectory()){
+        Serial.println("Not a directory");
+        return -1;
+    }
+
+    File file = root.openNextFile();
+    while(file){
+        if(file.isDirectory()){
+            Serial.print("  DIR : ");
+            Serial.println(file.name());
+        } else {
+            String name(file.name());
+            Serial.print("  FILE: ");
+            Serial.print(file.name());
+            Serial.print("  SIZE: ");
+            Serial.println(file.size());
+            if(name.startsWith(_Prefix))
+            {
+                SPIFFS.remove(name);
+                Serial.print("REMOVED");
+                ++count;
+            }
+        }
+        file = root.openNextFile();
+    }
+    return count;
+}
 void SPIFFSAccess::testFileIO(fs::FS &fs, const char * path){
     File file = fs.open(path);
     static uint8_t buf[512];

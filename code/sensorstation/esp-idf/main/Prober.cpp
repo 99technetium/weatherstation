@@ -58,6 +58,11 @@ int Prober::getAllSensorData(JsonObject& _Data, DynamicJsonBuffer& _Buffer)
     return 1;
 }
 
+int Prober::cleanAllSensorData()
+{
+    return parser.cleanAllSensorData();
+}
+
 
 float Prober::measureVBat()
 {

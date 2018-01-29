@@ -47,15 +47,21 @@ int Communicator::end()
     return con.endCommunication();
 }
 
-ArduinoJson::JsonObject& Communicator::sendSensorData(Commander& _Origin, ArduinoJson::JsonObject& _Data)
+ArduinoJson::JsonObject& Communicator::sendSensorData(Commander& _Origin, ArduinoJson::JsonObject& _Data, ArduinoJson::DynamicJsonBuffer& _Buffer)
 {
+    JsonObject& actionObj = _Buffer.createObject();
+    actionObj.set(CMD_ACTION_ID_DATA_ADD_SENSORDATA, _Data);
+    JsonObject& cmdObj = _Buffer.createObject();
+    cmdObj.set(CMD_ID_DATA, actionObj);
+    
     String data;
-    _Data.printTo(data);
+    cmdObj.printTo(data);
     std::string reply;
     std::string data_str(data.c_str());
     reply = con.send(data_str);
     StaticJsonBuffer<200> jsonBuffer;
-    return jsonBuffer.parseObject("");
+    
+    return jsonBuffer.parseObject(reply.c_str());
 }
 
 ArduinoJson::JsonObject& Communicator::requestUpdate(Commander& _Origin, ArduinoJson::JsonObject& _Config)

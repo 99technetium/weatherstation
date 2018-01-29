@@ -66,9 +66,11 @@ int DataParser::makeSensorDataJson(uint8_t (&_IDs)[4], JsonObject& _Data, Dynami
         fcontent = "["+fcontent+"]";
         _Data.set(String(id), _Buffer.parseArray(fcontent));
     }
-    String d;
-    _Data.printTo(d);
-    Serial.println(d);
     
     return 1;
+}
+
+int DataParser::cleanAllSensorData()
+{
+    return storage.deleteFileWithPrefix(SENSOR_DATA_FILE_PREFIX);
 }
