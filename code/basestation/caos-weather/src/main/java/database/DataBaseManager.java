@@ -73,9 +73,8 @@ public class DataBaseManager {
      */
     public void addDataPoint(DataPoint dataPoint){
         String sql = "INSERT INTO WEATHER_DATA VALUES ("
-                + dataPoint.getDeviceID() + ","
-                + dataPoint.getSensorID() + ","
-                + dataPoint.getType() + ","
+                + "'" + dataPoint.getDeviceID()+ "'" + ","
+                + "'" +dataPoint.getType() + "'" + ","
                 + dataPoint.getValue()+ ","
                 + dataPoint.getDate() + ","
                 + dataPoint.getTime() + ")";
@@ -110,9 +109,8 @@ public class DataBaseManager {
 
             while (result.next()){
                 DataPoint dataPoint = new DataPoint(
-                        result.getInt("DEVICE_ID"),
-                        result.getInt("SENSOR_ID"),
-                        result.getInt("TYPE"),
+                        result.getString("DEVICE_ID"),
+                        result.getString("TYPE"),
                         result.getInt("VALUE"),
                         result.getInt("DATE"),
                         result.getInt("TIME")

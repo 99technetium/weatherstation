@@ -14,7 +14,7 @@ public class Server extends Thread {
      */
     public void run(){
         int connectedUsers = 1;
-        int port = 1030;
+        int port = 8080;
 
         String serverIP = "";
 

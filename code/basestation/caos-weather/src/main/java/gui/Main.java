@@ -22,7 +22,7 @@ public class Main {
         server.start();
 
         Scanner input = new Scanner(System.in);
-        
+
         for (;;){
             String command = input.nextLine();
             handleCommand(command);
@@ -42,8 +42,8 @@ public class Main {
             }
             else {
                 int start = Integer.parseInt(commandArray[1]);
-                int end = Integer.parseInt(commandArray[1]);
-                int type = Integer.parseInt(commandArray[1]);
+                int end = Integer.parseInt(commandArray[2]);
+                String type = commandArray[3];
                 printMesuredData(start, end, type);
             }
         }
@@ -61,13 +61,13 @@ public class Main {
     static private void printHelp(){
         System.out.println(
                 "msd (measured data) [startdate YYYYMMDD] [enddate YYYYMMDD] [data type] - prints collected data by type\n\n" +
-                "gui [startdate YYYYMMDD] [enddate YYYYMMDD] [data type] - starts a gui with data graphed in it\n\n" +
+                "gui - starts a gui with data graphed in it\n\n" +
                 "Battery level         - 1\n" +
                 "Light Sensor          - 2\n" +
                 "Magnetic Field Sensor - 3\n");
     }
 
-    static private void printMesuredData(int start, int end, int datatype){
+    static private void printMesuredData(int start, int end, String datatype){
         WeatherObject weather = new WeatherObject(start, end);
         List<DataPoint> dataPoints = weather.getByType(datatype);
 
