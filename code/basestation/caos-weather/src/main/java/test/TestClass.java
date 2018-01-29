@@ -27,7 +27,6 @@ public class TestClass {
         manager.addDataPoint(new DataPoint(436513, 2, 3, 4, 20180120, 1511));
         manager.addDataPoint(new DataPoint(234366, 2, 3, 123, 20180123, 1511));
 
-
         WeatherObject weatherObject = new WeatherObject(20180122, 20180125);
 
         List<DataPoint> dataPoints = weatherObject.getByType(3);
