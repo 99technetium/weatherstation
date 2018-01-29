@@ -53,7 +53,7 @@ void Prober::sampleToFile()
 
 int Prober::getAllSensorData(JsonObject& _Data, DynamicJsonBuffer& _Buffer)
 {
-    uint8_t ids[4] = {SENSOR_ID_HALL, SENSOR_ID_VBAT, SENSOR_ID_LDR, SENSOR_ID_TEMP};
+    const char* ids[4] = {SENSOR_ID_HALL, SENSOR_ID_VBAT, SENSOR_ID_LDR, SENSOR_ID_TEMP};
     parser.makeSensorDataJson(ids, _Data, _Buffer);    
     return 1;
 }

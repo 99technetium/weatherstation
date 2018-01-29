@@ -23,7 +23,7 @@ Communicator::~Communicator()
 int Communicator::start(String _SSID, String _Key, IPAddress _IP, uint16_t _Port)
 {   
     con.setNetwork(_SSID, _Key);
-    con.setServer(_IP, _Port);    
+    //con.setServer(_IP, _Port);    
     return con.startCommunication();   
 }
 

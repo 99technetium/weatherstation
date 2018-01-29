@@ -44,6 +44,8 @@ int Connector::startCommunication()
     
     Serial.print("Assigned IPv4: ");
     Serial.println(WiFi.localIP());
+    
+    setServer(WiFi.gatewayIP(), 8080);
         
     Serial.print("Connecting to Server ");
     Serial.print(tIP.toString());

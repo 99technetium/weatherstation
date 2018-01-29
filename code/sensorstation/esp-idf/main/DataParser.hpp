@@ -23,12 +23,12 @@ public:
     DataParser();
     DataParser(const DataParser& orig);
     virtual ~DataParser();
-    void storeSensorData(uint8_t _SensorID, double _SensorData, long _SensorDataDate_s, long _SensorDataDate_us);
-    void printSensorData(uint8_t _SensorID);
-    int makeSensorDataJson(uint8_t (&_IDs)[4], JsonObject& _Data, DynamicJsonBuffer& _Buffer);
+    void storeSensorData(const char*  _SensorID, double _SensorData, long _SensorDataDate_s, long _SensorDataDate_us);
+    void printSensorData(const char*  _SensorID);
+    int makeSensorDataJson(const char** _IDs, JsonObject& _Data, DynamicJsonBuffer& _Buffer);
     int cleanAllSensorData();
 private:
-    String getSensorFileName(uint8_t _ID);
+    String getSensorFileName(const char*  _ID);
 };
 
 #endif /* DATAPARSER_HPP */

@@ -49,7 +49,7 @@
 /* - - - - COMMAND: Send Data - - - - */
 
 /* + + + + COMMAND: Config + + + + */
-    #define CMD_ID_CONFIG 3
+    #define CMD_ID_CONFIG "config"
 /* + + + + + + + + + + ACTION: Sleep time + + + + + + + + + + */
         #define CMD_ACTION_ID_CONFIG_SET_MINUTES_SLEEP_TIME 0
         #define CMD_ACTION_ID_CONFIG_GET_MINUTES_SLEEP_TIME 1
@@ -57,8 +57,8 @@
         #define CMD_ACTION_ID_CONFIG_GET_NUMBER_SENSOR_RUNS 3
         #define CMD_ACTION_ID_CONFIG_SET_NUMBER_SAMPLINGS 4
         #define CMD_ACTION_ID_CONFIG_GET_NUMBER_SAMPLINGS 5
-        #define CMD_ACTION_ID_CONFIG_SET_TIME 6
-        #define CMD_ACTION_ID_CONFIG_GET_TIME 7
+        #define CMD_ACTION_ID_CONFIG_SET_TIME "set_sys_time"
+        #define CMD_ACTION_ID_CONFIG_GET_TIME "get_sys_time"
 /* + + + + + + + + + + + + + + + DATA:  + + + + + + + + + + + + + + + */
             /* Value of Action of - no data */
 /* - - - - - - - - - - - - - - - DATA:  - - - - - - - - - - - - - - - */

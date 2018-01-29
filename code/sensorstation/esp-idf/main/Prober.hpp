@@ -47,10 +47,10 @@
 class Prober {
     DataParser parser;
     
-    const uint8_t SENSOR_ID_HALL=0;
-    const uint8_t SENSOR_ID_VBAT=1;
-    const uint8_t SENSOR_ID_LDR=2;
-    const uint8_t SENSOR_ID_TEMP=3;
+    const char* SENSOR_ID_HALL="HALL";
+    const char* SENSOR_ID_VBAT="VBAT";
+    const char* SENSOR_ID_LDR="LDR";
+    const char* SENSOR_ID_TEMP="TEMP";
 public: 
     Prober();
     Prober(const Prober& orig);

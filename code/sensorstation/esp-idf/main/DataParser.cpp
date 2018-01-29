@@ -19,7 +19,7 @@ DataParser::DataParser(const DataParser& orig) {
 DataParser::~DataParser() {
 }
 
-void DataParser::storeSensorData(uint8_t _SensorID, double _SensorData, long _SensorDataDate_s, long _SensorDataDate_us)
+void DataParser::storeSensorData(const char* _SensorID, double _SensorData, long _SensorDataDate_s, long _SensorDataDate_us)
 {
     String name = getSensorFileName(_SensorID);
     
@@ -39,7 +39,7 @@ void DataParser::storeSensorData(uint8_t _SensorID, double _SensorData, long _Se
     storage.appendFile(SPIFFS, name.c_str(), json.c_str());
 }
 
-void DataParser::printSensorData(uint8_t _SensorID)
+void DataParser::printSensorData(const char*  _SensorID)
 {
     String name = SENSOR_DATA_FILE_PREFIX;
     String id(_SensorID);
@@ -47,7 +47,7 @@ void DataParser::printSensorData(uint8_t _SensorID)
     storage.readFile(SPIFFS, name.c_str());
 }
 
-String DataParser::getSensorFileName(uint8_t _ID)
+String DataParser::getSensorFileName(const char*  _ID)
 {
     String name = SENSOR_DATA_FILE_PREFIX;
     String id(_ID);
@@ -55,16 +55,18 @@ String DataParser::getSensorFileName(uint8_t _ID)
 }
 
 //template <std::size_t array_size>
-int DataParser::makeSensorDataJson(uint8_t (&_IDs)[4], JsonObject& _Data, DynamicJsonBuffer& _Buffer)
+int DataParser::makeSensorDataJson(const char** _IDs, JsonObject& _Data, DynamicJsonBuffer& _Buffer)
 {
     String fname;
     String fcontent;
-    for(uint8_t& id : _IDs)
+    int i = 0;
+    while(_IDs[i] != 0)
     {
-        fname = getSensorFileName(id);
+        fname = getSensorFileName(_IDs[i]);
         fcontent = storage.readWholeFile(SPIFFS, fname.c_str());
         fcontent = "["+fcontent+"]";
-        _Data.set(String(id), _Buffer.parseArray(fcontent));
+        _Data.set(String(_IDs[i]), _Buffer.parseArray(fcontent));
+        i++;
     }
     
     return 1;
