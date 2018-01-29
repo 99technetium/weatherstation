@@ -57,6 +57,7 @@ public:
     virtual ~Prober();
     void sampleToFile();
     int getAllSensorData(JsonObject& _Data, DynamicJsonBuffer& _Buffer);
+    int cleanAllSensorData();
 private:
     void updateTime(timeval& _Timeval, long& _Time_s, long& _Time_us);
     

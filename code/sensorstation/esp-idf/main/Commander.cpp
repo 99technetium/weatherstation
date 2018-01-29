@@ -14,7 +14,7 @@ RTC_DATA_ATTR uint64_t  sleep_time_ref = 0;
 RTC_DATA_ATTR uint64_t  sleep_time_too_short = 0;
 RTC_DATA_ATTR uint64_t  sleep_time_target = 0;
 
-RTC_DATA_ATTR uint16_t  sample_cycles = 1;
+RTC_DATA_ATTR uint16_t  sample_cycles = 10;
 
 RTC_DATA_ATTR uint16_t  actual_sample_cycle = 0;
 
@@ -30,10 +30,20 @@ Commander::Commander()
     Serial.begin(115200);
     delay(10);
     
+    int sleeptime = 10;
+    
     init();
     initConfig();
+    Serial.print("Actual sample cycle: ");
+    Serial.print(actual_sample_cycle);
+    Serial.print("/");
+    Serial.print(sample_cycles);
+    Serial.print(" - Sleeptime: ");
+    Serial.print(sleeptime);
+    Serial.println(" s");
     ++actual_sample_cycle;
-    sleep_time_target = 10*1e6;  // in us
+    
+    sleep_time_target = sleeptime*1e6;  // in us
     
     // Sampling
     Prober prober;
@@ -51,8 +61,11 @@ Commander::Commander()
         prober.getAllSensorData(data, jsonBuffer);
         
         Communicator com(*this);
-        com.startFromConfig();
-        com.sendSensorData(*this, data);
+        if(com.startFromConfig()>=0)
+        {
+            com.sendSensorData(*this, data, jsonBuffer);
+            prober.cleanAllSensorData();
+        }
         
         actual_sample_cycle = 0;
     }

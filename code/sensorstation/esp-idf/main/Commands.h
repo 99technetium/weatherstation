@@ -26,7 +26,7 @@
 #define CMD_JSON_KEY "cmd"
 
 /* + + + + COMMAND: Authenticate + + + + */
-    #define CMD_ID_AUTH 0
+    #define CMD_ID_AUTH "auth"
 /* + + + + + + + + + + ACTION: identify + + + + + + + + + + */
         #define CMD_ACTION_ID_AUTH_IDENTIFY 0
         #define CMD_ACTION_ID_AUTH_REGISTER 1
@@ -38,9 +38,9 @@
 /* - - - - COMMAND: Handshake - - - - */
 
 /* + + + + COMMAND: Data + + + + */
-    #define CMD_ID_DATA 1
+    #define CMD_ID_DATA "data"
 /* + + + + + + + + + + ACTION: Sensor data + + + + + + + + + + */    
-        #define CMD_ACTION_ID_DATA_ADD_SENSORDATA 0 /*Array*/
+        #define CMD_ACTION_ID_DATA_ADD_SENSORDATA "action_add_sensor_data" /*Array*/
         #define CMD_ACTION_ID_DATA_GET_SENSORDATA 1 
 /* + + + + + + + + + + + + + + + DATA: Sensor data + + + + + + + + + + + + + + + */
             /* Key: Sensor ID, Value: Sensor Data array */

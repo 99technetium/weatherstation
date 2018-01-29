@@ -26,7 +26,7 @@ public:
     int start(String _SSID, String _Key, IPAddress _IP, uint16_t _Port);
     int startFromConfig();
     int end();
-    ArduinoJson::JsonObject& sendSensorData(Commander& _Origin, ArduinoJson::JsonObject& _Data);
+    ArduinoJson::JsonObject& sendSensorData(Commander& _Origin, ArduinoJson::JsonObject& _Data, ArduinoJson::DynamicJsonBuffer& _Buffer);
     ArduinoJson::JsonObject& requestUpdate(Commander& _Origin, ArduinoJson::JsonObject& _Config);
 private:
     Connector con;    

@@ -93,7 +93,7 @@ int Connector::endCommunication()
 std::string Connector::send(std::string _Data)
 {
     Serial.print("Sending...");
-    Serial.println(_Data.c_str());
+    //Serial.println(_Data.c_str());
 
     client.print(_Data.c_str());
     unsigned long ttl = millis();

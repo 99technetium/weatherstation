@@ -96,3 +96,5 @@ caos-weather/build/
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
 !gradle-wrapper.jar
 
+/code/basestation/caos-weather/.nb-gradle/
+/code/basestation/caos-weather/build/
