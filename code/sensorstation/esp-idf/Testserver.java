@@ -29,15 +29,8 @@ public class Testserver {
                     new BufferedReader(
                         new InputStreamReader(socket.getInputStream()));
                 String l;
-                String[] pairs, keyvalue;
-                while((l=in.readLine())!=null && l!="EOF") {
+                while((l=in.readLine())!=null) {
                     System.out.println(l);
-                    pairs=l.split(";");
-                    for(String s:pairs) {
-                        keyvalue = s.split(":");
-                        if(keyvalue.length<2) continue;
-                        System.out.println("Key: "+keyvalue[0]+" Value:"+keyvalue[1]);
-                    }
                 }
                 System.out.println("Socket closed");
             }

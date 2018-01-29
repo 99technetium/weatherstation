@@ -1,60 +1,27 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /* 
  * File:   Commander.cpp
- * Author: marc
+ * Author: Marc Schaefer <marc-schaefer.dev@highdynamics.org>
  * 
  * Created on 23. Januar 2018, 23:08
  */
 
 #include "Commander.h"
 
-#include "Communicator.h"
-
-//#include "freertos/FreeRTOS.h"
-#include "nvs_flash.h"
-#include "esp_wifi.h"
-#include "Arduino.h"
-#include "IPAddress.h"
-#include <string>
-#include <Preferences.h>
-#include "esp_attr.h"
-#include "esp_sleep.h"
-#include "Prober.hpp"
-#include "Pinmap.hpp"
-#include <sys/time.h>
-
-#define FACTOR_MIN_TO_US 60000000
-
-#define PREF_KEY_INIT           "config_init"
-#define PREF_KEY_SSID           "wifi_ssid"
-#define PREF_KEY_WIFIKEY        "wifi_key"
-#define PREF_KEY_SRV_PORT       "srv_port"
-#define PREF_KEY_SRV_IP         "srv_ip"
-#define PREF_KEY_SLEEPTIME      "sleeptime"
-#define PREF_KEY_NUMBER_CYCLES  "number_cycles"
-#define PREF_KEY_NUMBER_SAMPLES "number_samples"
-
-using namespace std;
+RTC_DATA_ATTR bool      init_cfg = 0;
 
 RTC_DATA_ATTR uint64_t  sleep_time_us = 0;
 RTC_DATA_ATTR uint64_t  sleep_time_ref = 0;
 RTC_DATA_ATTR uint64_t  sleep_time_too_short = 0;
 RTC_DATA_ATTR uint64_t  sleep_time_target = 0;
 
-#define SLEEP_TIME_ADJUST 15    // Time in us needed for calculation of next sleep time
+RTC_DATA_ATTR uint16_t  sample_cycles = 1;
 
-RTC_DATA_ATTR uint16_t  cycles = 0;
-RTC_DATA_ATTR bool      init_cfg = 0;
+RTC_DATA_ATTR uint16_t  actual_sample_cycle = 0;
 
+using namespace std;
 
 Commander::Commander()
 {
-    /*
     nvs_flash_init();
     tcpip_adapter_init();
     //ESP_ERROR_CHECK( esp_event_loop_init(event_handler, NULL) );
@@ -63,19 +30,36 @@ Commander::Commander()
     Serial.begin(115200);
     delay(10);
     
+    init();
     initConfig();
+    ++actual_sample_cycle;
     sleep_time_target = 10*1e6;  // in us
     
+    // Sampling
     Prober prober;
     
     powerPeripheral(true);
-    prober.sample();
+    prober.sampleToFile();
     delay(300);
     powerPeripheral(false);    
     
-    sleep();
-    */
+    // Send data
+    if(actual_sample_cycle >= sample_cycles)
+    {    
+        DynamicJsonBuffer jsonBuffer;
+        JsonObject& data = jsonBuffer.createObject();
+        prober.getAllSensorData(data, jsonBuffer);
+        
+        Communicator com(*this);
+        com.startFromConfig();
+        com.sendSensorData(*this, data);
+        
+        actual_sample_cycle = 0;
+    }
     
+    sleep();
+    
+    /*
     while(1)
     {        
         int val = hallRead();
@@ -92,6 +76,7 @@ Commander::Commander()
     Communicator com(*this);
     com.start(ssid, password, ip, port);
     com.end();
+    */
 }
 
 Commander::Commander(const Commander& orig) 
@@ -105,6 +90,19 @@ Commander::~Commander()
 int Commander::setConfig(unsigned int _CMD_ID, void* _Args) 
 {
     return 0;
+}
+
+void Commander::init()
+{
+    pinMode(PIN_RELAY_PPWR_CTRL1, OUTPUT);
+    pinMode(PIN_RELAY_PPWR_CTRL2, OUTPUT);
+    pinMode(PIN_RELAY_AUX_CTRL1, OUTPUT);
+    pinMode(PIN_RELAY_AUX_CTRL2, OUTPUT);
+            
+    digitalWrite(PIN_RELAY_PPWR_CTRL1, LOW);
+    digitalWrite(PIN_RELAY_PPWR_CTRL2, LOW);
+    digitalWrite(PIN_RELAY_AUX_CTRL1, LOW);
+    digitalWrite(PIN_RELAY_AUX_CTRL2, LOW);    
 }
 
 void Commander::initConfig()
@@ -133,7 +131,7 @@ void Commander::initConfig()
         sleep_time_target = preferences.getUShort(PREF_KEY_SLEEPTIME, 0);
         sleep_time_us = sleep_time_target*FACTOR_MIN_TO_US;
         
-        cycles = preferences.getUShort(PREF_KEY_NUMBER_CYCLES, 0);
+        actual_sample_cycle = preferences.getUShort(PREF_KEY_NUMBER_CYCLES, 0);
                 
         init_cfg = true;
         preferences.end();

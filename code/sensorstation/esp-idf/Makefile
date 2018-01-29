@@ -6,5 +6,6 @@
 PROJECT_NAME := Sensorstation
 	
 export IDF_PATH=/media/marc/HOME/home/docs/studium/17HS/CAOS/weatherstation/tools/sensorstation/esp-idf
+
 include $(IDF_PATH)/make/project.mk
 

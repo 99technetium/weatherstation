@@ -1,25 +1,7 @@
-#include "freertos/FreeRTOS.h"
-#include "esp_wifi.h"
-#include "esp_system.h"
-#include "esp_event.h"
-#include "esp_event_loop.h"
-#include "freertos/event_groups.h"
-#include "nvs_flash.h"
-#include "driver/gpio.h"
-#include "Arduino.h"
-#include "HTTPClient.h"
-#include "SPIFFSAccess.h"
-#include "ConfigParser.h"
-#include "esp_err.h"
-//#define LOG_LOCAL_LEVEL ESP_LOG_VERBOSE
-#include "esp_log.h"
-#include <WiFi.h>
-#include "IPAddress.h"
-#include <sys/time.h>
+#include "Commander.h"
 
-
-#include "Communicator.h"
-#include "Pinmap.hpp"
+#include "FS.h"
+#include "SPIFFS.h"
 
 extern "C" void app_main(void)
 {
@@ -27,7 +9,7 @@ extern "C" void app_main(void)
     nvs_flash_init();
     tcpip_adapter_init();
     //ESP_ERROR_CHECK( esp_event_loop_init(event_handler, NULL) );
-    initArduino();
+    //initArduino();
     
     Serial.begin(115200);
     delay(10);
@@ -55,24 +37,14 @@ extern "C" void app_main(void)
     /*
     ConfigParser cfg;
     cfg.countLines("/spiffs/sensors.config");
-    */
-    /*
+    
     SPIFFSAccess spiffs;
     spiffs.begin();
     spiffs.listDir(SPIFFS, "/", 0);
     spiffs.writeFile(SPIFFS, "/test.txt", "Das ist ein Test");
     spiffs.readFile(SPIFFS, "/test.txt");
     spiffs.readFile(SPIFFS, "/sensors.config");
-     * */
-    pinMode(PIN_RELAY_PPWR_CTRL1, OUTPUT);
-    pinMode(PIN_RELAY_PPWR_CTRL2, OUTPUT);
-    pinMode(PIN_RELAY_AUX_CTRL1, OUTPUT);
-    pinMode(PIN_RELAY_AUX_CTRL2, OUTPUT);
-            
-    digitalWrite(PIN_RELAY_PPWR_CTRL1, LOW);
-    digitalWrite(PIN_RELAY_PPWR_CTRL2, LOW);
-    digitalWrite(PIN_RELAY_AUX_CTRL1, LOW);
-    digitalWrite(PIN_RELAY_AUX_CTRL2, LOW);
+    */
     
     /*
     delay(2000);
@@ -88,18 +60,10 @@ extern "C" void app_main(void)
         digitalWrite(PIN_RELAY_AUX_CTRL2, LOW);
     */
     
-    Commander com;
-    
-    
-    while(1) {
-       // loop();
-    
-        delay(500);
-    }
-    
+    Commander com;    
 }
 
-int value = 0;
+/*
 
 void loop()
 {    
@@ -116,7 +80,7 @@ void loop()
     }   
     
 }
-
+*/
 /*
 void wifi_connect()
 {

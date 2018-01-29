@@ -1,21 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /* 
  * File:   Connector.cpp
- * Author: marc
+* Author: Marc Schaefer <marc-schaefer.dev@highdynamics.org>
  * 
  * Created on 23. Januar 2018, 18:59
  */
 
 #include "Connector.h"
 
-#include "WiFi.h"
-#include "IPAddress.h"
-#include "ArduinoJson.h"
 
 Connector::Connector() {
 }
@@ -120,7 +111,7 @@ std::string Connector::send(std::string _Data)
     return std::string(reply.c_str());
 }
 
-int Connector::setNetwork(std::string _SSID, std::string _Key)
+int Connector::setNetwork(String _SSID, String _Key)
 { 
     Serial.print("Set network/key to ");
     Serial.println(_SSID.c_str());

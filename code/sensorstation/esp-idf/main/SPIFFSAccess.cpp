@@ -1,21 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /* 
  * File:   SPIFFSAccess.cpp
- * Author: marc
+* Author: Marc Schaefer <marc-schaefer.dev@highdynamics.org>
  * 
  * Created on 20. Januar 2018, 03:52
  */
 
 #include "SPIFFSAccess.h"
-#include "FS.h"
-#include "SPIFFS.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 SPIFFSAccess::SPIFFSAccess() {
 }
@@ -78,6 +68,18 @@ void SPIFFSAccess::readFile(fs::FS &fs, const char * path){
         Serial.write(file.read());
     }
     Serial.print("\n");
+}
+
+String SPIFFSAccess::readWholeFile(fs::FS &fs, const char * path)
+{
+
+    File file = fs.open(path, FILE_READ);
+    if(!file || file.isDirectory()){
+        Serial.println("Failed to open file for reading");
+        return String("");
+    }
+
+    return file.readString();
 }
 
 void SPIFFSAccess::writeFile(fs::FS &fs, const char * path, const char * message){

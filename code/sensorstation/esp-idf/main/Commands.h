@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /* 
  * File:   Commands.h
- * Author: marc
+* Author: Marc Schaefer <marc-schaefer.dev@highdynamics.org>
  *
  * Created on 23. Januar 2018, 16:12
  */

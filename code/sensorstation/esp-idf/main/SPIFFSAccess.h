@@ -1,18 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /* 
  * File:   SPIFFSAccess.h
- * Author: marc
+* Author: Marc Schaefer <marc-schaefer.dev@highdynamics.org>
  *
  * Created on 20. Januar 2018, 03:52
  */
 
 #include "FS.h"
 #include "SPIFFS.h"
+
+#include <stdio.h>
+#include <stdlib.h>
 
 #ifndef SPIFFSACCESS_H
 #define SPIFFSACCESS_H
@@ -23,6 +20,7 @@ public:
     void begin();
     void listDir(fs::FS &fs, const char * dirname, uint8_t levels);
     void readFile(fs::FS &fs, const char * path);
+    String readWholeFile(fs::FS &fs, const char * path);
     void writeFile(fs::FS &fs, const char * path, const char * message);
     void appendFile(fs::FS &fs, const char * path, const char * message);
     void renameFile(fs::FS &fs, const char * path1, const char * path2);

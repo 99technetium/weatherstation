@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /* 
  * File:   ConfigParser.h
- * Author: marc
+* Author: Marc Schaefer <marc-schaefer.dev@highdynamics.org>
  *
  * Created on 20. Januar 2018, 04:32
  */
@@ -14,7 +8,18 @@
 #ifndef CONFIGPARSER_H
 #define CONFIGPARSER_H
 
+#define LOG_LOCAL_LEVEL ESP_LOG_VERBOSE
+#include "esp_log.h"
+#include "esp_err.h"
+#include "esp_spiffs.h"
+
+#include "Arduino.h"
+
+#include <fstream>
+#include <sstream>
 #include <string>
+#include <iostream>
+#include <stdio.h>
 
 class ConfigParser {
 public:
