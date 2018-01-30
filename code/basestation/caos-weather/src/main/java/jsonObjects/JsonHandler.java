@@ -1,28 +1,25 @@
 package jsonObjects;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import database.DataBaseManager;
 import datapoint.DataPoint;
-import network.SenderThread;
+import network.Sender;
+import network.SensorStationList;
 
+import java.net.Socket;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.util.Map;
 
 public class JsonHandler {
     DataBaseManager manager = new DataBaseManager();
+    SensorStationList list;
     String deviceID;
     JsonObject commandObject;
 
-    public JsonHandler(JsonObject commandObject, String deviceID) {
-        Gson gson = new Gson();
-        System.out.println(gson.toJson(commandObject));
-
-        System.out.println(Integer.parseInt(LocalDate.now().getYear()+""+LocalDate.now().getMonthValue()+""+LocalDate.now().getDayOfMonth()));
-
+    public JsonHandler(JsonObject commandObject, String deviceID, Socket sensorSocket) {
         this.deviceID = deviceID;
         this.commandObject = commandObject;
 
@@ -42,8 +39,8 @@ public class JsonHandler {
                 JsonObject json = entry.getValue().getAsJsonObject();
                 if(json.has("get_sys_time")){
                     String unixTime = "{\"config\":{\"set_sys_time\":" + Instant.now().getEpochSecond() + "}}";
-                    SenderThread senderThread = new SenderThread(unixTime, deviceID);
-                    senderThread.start();
+                    Sender sender = new Sender(deviceID, unixTime, sensorSocket);
+                    sender.send();
                 }
             }
 
@@ -71,8 +68,12 @@ public class JsonHandler {
         }
         int date = Integer.parseInt(LocalDate.now().getYear()+smonth+LocalDate.now().getDayOfMonth());
         array.size();
+
         for(int i = 0; i < array.size(); i++){
             JsonArray jsonArray = array.get(i).getAsJsonArray();
+
+            System.out.println(deviceID + " " + type + " " + jsonArray.get(0).getAsInt() + " " + date + " " + jsonArray.get(1).getAsInt());
+
             manager.addDataPoint(new DataPoint(
                     deviceID,
                     type,

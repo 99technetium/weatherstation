@@ -11,16 +11,10 @@ import java.util.HashMap;
 public class SensorStationList {
     private HashMap<String, SensorStation> list = new HashMap<>();
 
-    private static SensorStationList instance = new SensorStationList();
-
-    public static SensorStationList getInstance() {
-        return instance;
-    }
-
-    private SensorStationList(){}
+    public SensorStationList(){}
 
     //TODO: make sure this really works
-    public void addStation(String key, SensorStation sensorStation){
+    synchronized public void addStation(String key, SensorStation sensorStation){
         list.put(key, sensorStation);
     }
 

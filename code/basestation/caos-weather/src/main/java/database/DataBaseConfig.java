@@ -83,7 +83,6 @@ public class DataBaseConfig {
             prop.load(test);
 
         } catch (IOException ex) {
-            System.out.println("db not configured");
             value = false;
         } finally {
             if (test != null) {
