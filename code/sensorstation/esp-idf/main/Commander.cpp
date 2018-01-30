@@ -14,9 +14,11 @@ RTC_DATA_ATTR uint64_t  sleep_time_ref = 0;
 RTC_DATA_ATTR uint64_t  sleep_time_too_short = 0;
 RTC_DATA_ATTR uint64_t  sleep_time_target = 0;
 
-RTC_DATA_ATTR uint16_t  sample_cycles = 10;
+RTC_DATA_ATTR uint16_t  sample_cycles = 3;
 
-RTC_DATA_ATTR uint16_t  actual_sample_cycle = 0;
+RTC_DATA_ATTR uint16_t  sample_number = 3;
+
+RTC_DATA_ATTR uint16_t  actual_sample_cycle = 1;
 
 using namespace std;
 
@@ -41,7 +43,6 @@ Commander::Commander()
     Serial.print(" - Sleeptime: ");
     Serial.print(sleeptime);
     Serial.println(" s");
-    ++actual_sample_cycle;
     
     sleep_time_target = sleeptime*1e6;  // in us
     
@@ -49,7 +50,7 @@ Commander::Commander()
     Prober prober;
     
     powerPeripheral(true);
-    prober.sampleToFile();
+    prober.sampleToFile(sample_number);
     delay(300);
     powerPeripheral(false);    
     
@@ -67,8 +68,9 @@ Commander::Commander()
             prober.cleanAllSensorData();
         }
         
-        actual_sample_cycle = 0;
+        actual_sample_cycle = 1;
     }
+    ++actual_sample_cycle;
     
     sleep();
     

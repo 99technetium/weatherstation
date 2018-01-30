@@ -55,7 +55,7 @@ public:
     Prober();
     Prober(const Prober& orig);
     virtual ~Prober();
-    void sampleToFile();
+    void sampleToFile(uint16_t _Samples);
     int getAllSensorData(JsonObject& _Data, DynamicJsonBuffer& _Buffer);
     int cleanAllSensorData();
 private:

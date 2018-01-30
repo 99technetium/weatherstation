@@ -58,11 +58,15 @@ String DataParser::getSensorFileName(const char*  _ID)
 int DataParser::makeSensorDataJson(const char** _IDs, JsonObject& _Data, DynamicJsonBuffer& _Buffer)
 {
     String fname;
+    String prefix = SENSOR_DATA_FILE_PREFIX;
     String fcontent;
     int i = 0;
     while(_IDs[i] != 0)
     {
-        fname = getSensorFileName(_IDs[i]);
+        //fname = getSensorFileName(_IDs[i]);
+        fname = prefix+String(_IDs[i]);
+        Serial.print("READ FROM ID:");
+        Serial.println(fname);
         fcontent = storage.readWholeFile(SPIFFS, fname.c_str());
         fcontent = "["+fcontent+"]";
         _Data.set(String(_IDs[i]), _Buffer.parseArray(fcontent));

@@ -143,6 +143,7 @@ int SPIFFSAccess::deleteFileWithPrefix(const char * _Prefix)
         return -1;
     }
 
+    String prefix(_Prefix);
     File file = root.openNextFile();
     while(file){
         if(file.isDirectory()){
@@ -154,7 +155,7 @@ int SPIFFSAccess::deleteFileWithPrefix(const char * _Prefix)
             Serial.print(file.name());
             Serial.print("  SIZE: ");
             Serial.println(file.size());
-            if(name.startsWith(_Prefix))
+            if(name.startsWith(prefix))
             {
                 SPIFFS.remove(name);
                 Serial.print("REMOVED");

@@ -30,19 +30,24 @@ void Prober::updateTime(timeval& _Timeval, long& _Time_s, long& _Time_us)
     }    
 }
 
-void Prober::sampleToFile()
-{
+void Prober::sampleToFile(uint16_t _Samples)
+{   
     timeval timer;
     long time_s;
     long time_us;
-    updateTime(timer, time_s, time_us);
-    parser.storeSensorData(SENSOR_ID_HALL, measureIntHall(), time_s, time_us);
-    updateTime(timer, time_s, time_us);
-    parser.storeSensorData(SENSOR_ID_VBAT, measureVBat(), time_s, time_us);
-    updateTime(timer, time_s, time_us);
-    parser.storeSensorData(SENSOR_ID_LDR, measureLDRonI2C(0x48, 0), time_s, time_us);
-    updateTime(timer, time_s, time_us);
-    parser.storeSensorData(SENSOR_ID_TEMP, measureTempOnI2C(0x48, 1), time_s, time_us);
+    
+    for( uint16_t a = 0; a < _Samples; a++ ) {
+ 
+        updateTime(timer, time_s, time_us);
+        parser.storeSensorData(SENSOR_ID_HALL, measureIntHall(), time_s, time_us);
+        updateTime(timer, time_s, time_us);
+        parser.storeSensorData(SENSOR_ID_VBAT, measureVBat(), time_s, time_us);
+        updateTime(timer, time_s, time_us);
+        parser.storeSensorData(SENSOR_ID_LDR, measureLDRonI2C(0x48, 0), time_s, time_us);
+        updateTime(timer, time_s, time_us);
+        parser.storeSensorData(SENSOR_ID_TEMP, measureTempOnI2C(0x48, 1), time_s, time_us);
+        delay(100);
+    }
     /*
     Serial.print("- - - - - -");
     parser.printSensorData(SENSOR_ID_VBAT);
@@ -53,7 +58,8 @@ void Prober::sampleToFile()
 
 int Prober::getAllSensorData(JsonObject& _Data, DynamicJsonBuffer& _Buffer)
 {
-    const char* ids[4] = {SENSOR_ID_HALL, SENSOR_ID_VBAT, SENSOR_ID_LDR, SENSOR_ID_TEMP};
+    const char* ids[5] = {SENSOR_ID_HALL, SENSOR_ID_VBAT, SENSOR_ID_LDR, SENSOR_ID_TEMP, 0};
+    
     parser.makeSensorDataJson(ids, _Data, _Buffer);    
     return 1;
 }
