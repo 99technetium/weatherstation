@@ -1,12 +1,13 @@
 package network;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import database.DataBaseManager;
 import datapoint.DataPoint;
+import jsonObjects.JsonHandler;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.net.Socket;
-import java.util.Scanner;
 
 public class ReceiverThread extends Thread {
     Socket sensorSocket;
@@ -23,15 +24,28 @@ public class ReceiverThread extends Thread {
     public void run(){
         DataBaseManager manager = new DataBaseManager();
         SensorStationList list = SensorStationList.getInstance();
+        Gson jsonParser = new Gson();
 
-        Scanner scanner = new Scanner(in).useDelimiter("\\A");
-        String inputString = scanner.hasNext() ? scanner.next() : "";
+        try {
+            BufferedReader streamReader = new BufferedReader(new InputStreamReader(in, "UTF-8"));
+            StringBuilder responseStrBuilder = new StringBuilder();
 
-        DataPoint dataPoint = (new JsonHandler(inputString)).getDatapoint();
+            String inputStr;
+            while ((inputStr = streamReader.readLine()) != null)
+                responseStrBuilder.append(inputStr);
+            JsonObject commandObject = jsonParser.fromJson(responseStrBuilder.toString(), JsonObject.class);
 
-        manager.addDataPoint(dataPoint);
+            String deviceID = sensorSocket.getRemoteSocketAddress().toString();
 
-        int deviceID = dataPoint.getDeviceID();
-        list.addStation(deviceID, new SensorStation(sensorSocket));
+            System.out.println(commandObject.get("1"));
+
+            new JsonHandler(commandObject, deviceID);
+
+            list.addStation(deviceID, new SensorStation(sensorSocket));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

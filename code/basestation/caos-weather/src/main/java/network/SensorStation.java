@@ -1,5 +1,7 @@
 package network;
 
+import datapoint.DataPoint;
+
 import java.net.Socket;
 
 public class SensorStation {
@@ -9,7 +11,7 @@ public class SensorStation {
         return socket;
     }
 
-    public SensorStation(Socket socket){
+    public SensorStation(Socket socket) {
         this.socket = socket;
     }
 }

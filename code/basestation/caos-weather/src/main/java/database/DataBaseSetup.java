@@ -14,9 +14,8 @@ public class DataBaseSetup {
 
 
         String sql = "CREATE TABLE WEATHER_DATA "
-                + "(DEVICE_ID BIGINT not NULL, "
-                + "SENSOR_ID BIGINT, "
-                + "TYPE INTEGER, "
+                + "(DEVICE_ID VARCHAR(50) not NULL, "
+                + "TYPE VARCHAR(50), "
                 + "VALUE BIGINT, "
                 + "DATE INTEGER, "
                 + "TIME INTEGER) ";

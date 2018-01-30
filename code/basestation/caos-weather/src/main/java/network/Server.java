@@ -6,15 +6,15 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-public class Server {
+public class Server extends Thread {
 
     /**
      * Starts a server for the SensorStations to connect to. The Server Listens for a incoming connection on port 1030.
      * If a client connects to the Server a new SensorStationThread is spun up for the client to communicate on.
      */
-    public void startServer(){
+    public void run(){
         int connectedUsers = 1;
-        int port = 1030;
+        int port = 8080;
 
         String serverIP = "";
 
@@ -26,10 +26,9 @@ public class Server {
 
         try{
             ServerSocket BaseStationServer = new ServerSocket(port);
-            System.out.print("Server running with ip " + serverIP + ", waiting for Sensor Station connection on Port " + port + "\n");
+            System.out.println("Server running with ip " + serverIP);
             while(true) {
                 Socket socket = BaseStationServer.accept();
-                //TODO: this should create an event so that basestation knows to update gui
                 (new ReceiverThread(socket)).start(); //creats a new thread for the SensorStations to use
             }
         } catch (IOException e) {

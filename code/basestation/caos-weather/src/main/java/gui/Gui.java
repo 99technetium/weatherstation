@@ -33,7 +33,7 @@ public class Gui extends Application {
         lineChart.setTitle("Temperature");
 
         WeatherObject object = new WeatherObject(20180119,20180131);
-        List<DataPoint> dataPoints = object.getByType(3);
+        List<DataPoint> dataPoints = object.getByType("TEMP");
 
         XYChart.Series series1 = new XYChart.Series();
         series1.setName("Sensor 1");

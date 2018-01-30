@@ -44,19 +44,19 @@ public class WeatherObject {
      * @param type for which to search the database
      * @return List of DataPoints
      */
-    //TODO: implement method
-    public List<DataPoint> getByType(int type){
+    //TODO: implement method and data should be returned in chronological order
+    public List<DataPoint> getByType(String type){
         DataBaseManager manager = new DataBaseManager();
         String sql;
 
         if(fromDate != 0 && toDate != 0) {
-            sql = "SELECT DEVICE_ID, SENSOR_ID, TYPE, VALUE, DATE, TIME FROM WEATHER_DATA "
-                    + "WHERE TYPE = " + type + " "
+            sql = "SELECT DEVICE_ID, TYPE, VALUE, DATE, TIME FROM WEATHER_DATA "
+                    + "WHERE TYPE = " +"'"+ type +"'" + " "
                     + "AND (DATE >= " + fromDate + " "
                     + "AND DATE <= " + toDate + " )";
         }
         else {
-            sql = "SELECT DEVICE_ID, SENSOR_ID, TYPE, VALUE, DATE, TIME FROM WEATHER_DATA "
+            sql = "SELECT DEVICE_ID, TYPE, VALUE, DATE, TIME FROM WEATHER_DATA "
                     + "WHERE TYPE = " + type + " ";
         }
 
