@@ -6,15 +6,12 @@ import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.Socket;
 
-public class SenderThread extends Thread{
+public class Sender{
     String jsonCommand;
     OutputStream out;
 
-    public SenderThread(String deviceID, String jsonCommand){
+    public Sender(String deviceID, String jsonCommand, Socket sensorSocket){
         this.jsonCommand = jsonCommand;
-
-        SensorStation sensorStation = SensorStationList.getInstance().getSensorStation(deviceID);
-        Socket sensorSocket = sensorStation.getSocket();
 
         try {
             out = sensorSocket.getOutputStream();
@@ -23,7 +20,7 @@ public class SenderThread extends Thread{
         }
     }
 
-    public void run() {
+    public void send() {
 
         try {
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(out, "UTF-8");
