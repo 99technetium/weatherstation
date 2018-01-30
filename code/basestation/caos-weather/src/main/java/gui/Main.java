@@ -62,9 +62,10 @@ public class Main {
         System.out.println(
                 "msd (measured data) [startdate YYYYMMDD] [enddate YYYYMMDD] [data type] - prints collected data by type\n\n" +
                 "gui - starts a gui with data graphed in it\n\n" +
-                "Battery level         - 1\n" +
-                "Light Sensor          - 2\n" +
-                "Magnetic Field Sensor - 3\n");
+                "Battery level         - VBAT\n" +
+                "Light Sensor          - LDR\n" +
+                "Magnetic Field Sensor - HALL\n" +
+                "Temperature           - TEMP");
     }
 
     static private void printMesuredData(int start, int end, String datatype){
