@@ -23,13 +23,13 @@ public class TestClass {
         }
 
         DataBaseManager manager = new DataBaseManager();
-        manager.addDataPoint(new DataPoint(124132, 2, 3, 4, 20180124, 1511));
-        manager.addDataPoint(new DataPoint(436513, 2, 3, 4, 20180120, 1511));
-        manager.addDataPoint(new DataPoint(234366, 2, 3, 123, 20180123, 1511));
+        manager.addDataPoint(new DataPoint("asdf", "TEMP", 4, 20180124, 1511));
+        manager.addDataPoint(new DataPoint("adsf", "TEMP", 4, 20180120, 1511));
+        manager.addDataPoint(new DataPoint("asdf", "TEMP", 123, 20180123, 1511));
 
         WeatherObject weatherObject = new WeatherObject(20180122, 20180125);
 
-        List<DataPoint> dataPoints = weatherObject.getByType(3);
+        List<DataPoint> dataPoints = weatherObject.getByType("TEMP");
 
         for (DataPoint d : dataPoints) {
             System.out.println(d.getDeviceID());
